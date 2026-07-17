@@ -9,9 +9,9 @@ mantığı içermez. Arayüz tarafı değişse bile (Streamlit, Flask, CLI vb.)
 bu modül olduğu gibi kullanılabilir.
 
 Yeni bir sunum bölümü eklemek için:
-  1) Aşağıdaki SECTIONS sözlüğüne yeni bir "key" ekleyin.
-  2) "title" ve "icon" belirleyin.
-  3) "items" içine {"baslik": "...", "detay": "..."} formatında maddeler ekleyin.
+1) Aşağıdaki SECTIONS sözlüğüne yeni bir "key" ekleyin.
+2) "title" ve "icon" belirleyin.
+3) "items" içine {"baslik": "...", "detay": "..."} formatında maddeler ekleyin.
 """
 
 SECTIONS = {
@@ -201,6 +201,170 @@ SECTIONS = {
             },
         },
     },
+    "tbb_onerilen_egitimler": {
+        "title": "TBB'ye Önerilen Eğitim Portföyü",
+        "icon": "🎓",
+        "menu_desc": "Bankalara Uygunluğu Teyit Edilmiş Master Liste ve Öncelikli 3 Eğitim",
+        "items": {
+            # ------------------------------------------------------------
+            # ÖNCELİKLİ 3 EĞİTİM — One-shot satış için en yüksek olasılıklı
+            # ------------------------------------------------------------
+            "1": {
+                "baslik": "[ÖNCELİK 1] Sürdürülebilirlik Raporlama ve İklim Riskleri",
+                "detay": (
+                    "Durum Tespiti: KGK kuralı gereği TSRS uyumlu sürdürülebilirlik "
+                    "raporu artık yıl sonu finansal tablolarla aynı anda "
+                    "yayınlanmak zorunda; bankalar bu zamanlama krizine ve ilk kez "
+                    "karşılaştıkları finansal olmayan veri setine hazır değil.\n\n"
+                    "Önerilen Çözüm: Bu eğitim, TBB gündeminizdeki 'Bilanço "
+                    "Zamanlaması Krizi' ve 'Data Ghost' argümanlarının doğrudan "
+                    "çözümü olduğu için satış anlatısı hazır durumda — mevzuat "
+                    "baskısı zaten TBB tarafından hissediliyor.\n\n"
+                    "Önerilen Eğitmen: Hasan Sarıçiçek (Dr.) — Sürdürülebilir "
+                    "Finans ve ESG, İklim Teknolojileri alanında 20+ yıl deneyim."
+                ),
+            },
+            "2": {
+                "baslik": "[ÖNCELİK 2] Bankalar ve Finansal Kurumlar İçin MASAK Düzenlemeleri",
+                "detay": (
+                    "Durum Tespiti: MASAK uyumu her bankada zorunlu, tekrarlayan "
+                    "ve geniş katılımcı tabanına (uyum, şube, hazine) yayılan bir "
+                    "ihtiyaç — bütçe onayı diğer eğitimlere göre çok daha az "
+                    "dirençle karşılanır.\n\n"
+                    "Önerilen Çözüm: 1 günlük yoğunlaştırılmış format ve geniş "
+                    "katılımcı tabanı sayesinde tek bir oturumda yüksek hacimli "
+                    "satış potansiyeli taşır — 'one-shot' pitch için ideal giriş "
+                    "ürünü.\n\n"
+                    "Önerilen Eğitmen: Alpaslan Çakır (CAMS) veya Ali Ekber Polat "
+                    "(Av., LL.M.) — ikisi de MASAK mevzuatı ve uyum programı "
+                    "uzmanlığına sahip."
+                ),
+            },
+            "3": {
+                "baslik": "[ÖNCELİK 3] CAMS — Sertifikalı AML Uzmanı Sınav Hazırlık Programı",
+                "detay": (
+                    "Durum Tespiti: CAMS, dünyada AML alanında en çok tanınan "
+                    "sertifika; banka uyum direktörleri için kariyer değeri "
+                    "yüksek, bu da bireysel/kurumsal bütçe onayını kolaylaştırır.\n\n"
+                    "Önerilen Çözüm: Sertifika prestiji üzerinden hem kurumsal "
+                    "toplu satış hem de bireysel kayıt kanalını aynı anda "
+                    "açar — çapraz satış potansiyeli en yüksek kalemlerden "
+                    "biri.\n\n"
+                    "Önerilen Eğitmen: Alpaslan Çakır (CAMS) — Denizbank AML&CFT "
+                    "Bölüm Müdürü, TBB Bankacılar Dergisi yazarı."
+                ),
+            },
+            # ------------------------------------------------------------
+            # MASTER LİSTE — Bankacılık ve Sigortacılık
+            # ------------------------------------------------------------
+            "4": {
+                "baslik": "Banka Sermaye ve Risk Yönetimi",
+                "detay": "Önerilen Eğitmen: Ahmet Burak Emel (Dr.) veya Gürcan Avcı (Dr., CCM).",
+            },
+            "5": {
+                "baslik": "Banka ve Finansal Kurumların Analizi",
+                "detay": "Önerilen Eğitmen: Deniz Parlak (Prof. Dr.).",
+            },
+            "6": {
+                "baslik": "Kurumsal Derecelendirme ve Ülke Kredi Riski",
+                "detay": "Önerilen Eğitmen: Ertan Akbulut (Aktüer, CFO).",
+            },
+            "7": {
+                "baslik": "Sorunlu Krediler ve Yeniden Yapılandırma",
+                "detay": "Önerilen Eğitmen: Ertan Akbulut (Aktüer, CFO).",
+            },
+            "8": {
+                "baslik": "Sigorta Şirketlerinde Mali Tablolar ve Analiz",
+                "detay": "Önerilen Eğitmen: Neşe Varna Uğurkan (Dr., Aktüer).",
+            },
+            "9": {
+                "baslik": "Banka Şube Yönetimi",
+                "detay": (
+                    "Önerilen Eğitmen: Ahmet Burak Emel (Dr.) — UniCredit'in "
+                    "'En İyi Eğitim Uygulaması' seçtiği Şube Simülasyonu'nun "
+                    "geliştiricisi."
+                ),
+            },
+            "10": {
+                "baslik": "Sigorta Şirketi Analizi ve Solvency II",
+                "detay": "Önerilen Eğitmen: Neşe Varna Uğurkan (Dr., Aktüer).",
+            },
+            "11": {
+                "baslik": "Bankalarda Hazine Yönetimi",
+                "detay": "Önerilen Eğitmen: Temur Kayhan (Ph.D.) — Kuveyt Türk Quantitative Treasury Analyst geçmişi.",
+            },
+            "12": {
+                "baslik": "Açık Bankacılık ve Dijital Ödeme Sistemleri",
+                "detay": "Önerilen Eğitmen: Ramazan Küçük — BDDK geçmişi, Açık Bankacılık ve BaaS uzmanlığı.",
+            },
+            "13": {
+                "baslik": "Dijital Bankacılık ve Müşteri Deneyimi",
+                "detay": "Önerilen Eğitmen: TBD — kadroda net bir uzman görünmüyor, IFE ile teyit edilmeli.",
+            },
+            # ------------------------------------------------------------
+            # MASTER LİSTE — Sürdürülebilirlik & ESG
+            # ------------------------------------------------------------
+            "14": {
+                "baslik": "Sürdürülebilir Finans ve ESG Yatırımları",
+                "detay": "Önerilen Eğitmen: Hasan Sarıçiçek (Dr.).",
+            },
+            "15": {
+                "baslik": "İklim Risk Yönetimi ve Karbon Piyasaları",
+                "detay": "Önerilen Eğitmen: Hasan Sarıçiçek (Dr.).",
+            },
+            "16": {
+                "baslik": "Yeşil Tahvil ve Yenilenebilir Enerji Finansmanı",
+                "detay": "Önerilen Eğitmen: Hasan Sarıçiçek (Dr.).",
+            },
+            "17": {
+                "baslik": "Döngüsel Ekonomi ve Yeşil Yenilik",
+                "detay": "Önerilen Eğitmen: TBD — IFE ile teyit edilmeli.",
+            },
+            "18": {
+                "baslik": "Etki Yatırımı Prensipleri",
+                "detay": "Önerilen Eğitmen: TBD — IFE ile teyit edilmeli.",
+            },
+            "19": {
+                "baslik": "Sürdürülebilirlik Raporlama ve İklim Riskleri",
+                "detay": "Önerilen Eğitmen: Hasan Sarıçiçek (Dr.) — bkz. Öncelik 1.",
+            },
+            "20": {
+                "baslik": "Doğal Sermaye ve Biyoçeşitlilik Yatırımları",
+                "detay": "Önerilen Eğitmen: TBD — IFE ile teyit edilmeli.",
+            },
+            "21": {
+                "baslik": "Kurumsal ESG Stratejileri ve Raporlama",
+                "detay": "Önerilen Eğitmen: TBD — IFE ile teyit edilmeli.",
+            },
+            # ------------------------------------------------------------
+            # MASTER LİSTE — AML ve Uyum
+            # ------------------------------------------------------------
+            "22": {
+                "baslik": "AML/CFT — Kara Para Aklama ve Terörizmin Finansmanı ile Mücadele",
+                "detay": "Önerilen Eğitmen: Alpaslan Çakır (CAMS).",
+            },
+            "23": {
+                "baslik": "Sınır Ötesi Suçlar ve Ticarete Dayalı Kara Para Aklama (TBML)",
+                "detay": "Önerilen Eğitmen: Eyyüp Ensari Şahin (Doç. Dr.).",
+            },
+            "24": {
+                "baslik": "Ödeme Kuruluşları, KVHS, Döviz Büroları için İleri Düzey AML/CFT",
+                "detay": "Önerilen Eğitmen: Eyyüp Ensari Şahin (Doç. Dr.) veya Ramazan Küçük.",
+            },
+            "25": {
+                "baslik": "MASAK Uyum Görevlisi Yetkilendirme Sınavı Hazırlık Eğitimi",
+                "detay": "Önerilen Eğitmen: Ali Ekber Polat (Av., LL.M.).",
+            },
+            "26": {
+                "baslik": "Küresel Uyum Trendleri Işığında Stratejik Yönetişim",
+                "detay": "Önerilen Eğitmen: Gürcan Avcı (Dr., CCM).",
+            },
+            "27": {
+                "baslik": "Bütünleşik Müşteri Kabulü ve İleri Düzey KYC Uzmanlığı",
+                "detay": "Önerilen Eğitmen: Alpaslan Çakır (CAMS).",
+            },
+        },
+    },
 }
 
 # Ana menüde bölümlerin görünme sırası (feedback ve kapatma ayrı ele alınır)
@@ -210,4 +374,5 @@ SECTION_ORDER = [
     "stratejiler",
     "modeller",
     "cross_sell",
+    "tbb_onerilen_egitimler",
 ]
