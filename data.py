@@ -365,10 +365,75 @@ SECTIONS = {
             },
         },
     },
+    "tbb_toplanti_pitch": {
+        "title": "TBB Toplantı Sunumu — Ekim/Kasım Swissotel One-Shot Teklifi",
+        "icon": "🎯🔥",
+        "menu_desc": "1 Saatlik Toplantıda Satılacak 3 Kritik Eğitim — Öncelik Sırasına Göre",
+        "items": {
+            "1": {
+                "baslik": "[0-15 dk] Sürdürülebilirlik Raporlama ve İklim Riskleri — Açılış Vuruşu",
+                "detay": (
+                    "Neden ilk sırada: Mevzuat baskısı (TSRS + yıl sonu tablo eşzamanlılığı) "
+                    "hâlihazırda TBB gündeminde. Satış anlatısı hazır — biz sorunu "
+                    "icat etmiyoruz, zaten var olan bir acil ihtiyaca çözüm sunuyoruz.\n\n"
+                    "Toplantıda vurgu: 'Bu yıl sonu artık ertelenemez bir zamanlama krizi. "
+                    "Ekim-Kasım'da Swissotel'de yapacağımız eğitim, yıl sonu raporlama "
+                    "öncesi son hazırlık penceresi.'\n\n"
+                    "Kapanış cümlesi önerisi: 'Bu eğitimi yıl sonu raporlama takviminize "
+                    "göre planladık, bu yüzden Ekim veya Kasım'da yer ayırmanızı öneriyoruz.'\n\n"
+                    "Eğitmen: Hasan Sarıçiçek (Dr.) — Sürdürülebilir Finans ve ESG, "
+                    "İklim Teknolojileri alanında 20+ yıl deneyim."
+                ),
+            },
+            "2": {
+                "baslik": "[15-30 dk] MASAK Düzenlemeleri — Geniş Tabanlı Zorunlu Eğitim",
+                "detay": (
+                    "Neden ikinci sırada: Zorunlu ve tekrarlayan bir ihtiyaç, bütçe onayı "
+                    "diğer eğitimlere göre çok daha az dirençle karşılanır. Toplantıda "
+                    "birinci maddeden sonra 'işte kolay onaylanacak olan' diyerek geçiş "
+                    "yapılabilir.\n\n"
+                    "Toplantıda vurgu: '1 günlük yoğunlaştırılmış format, geniş katılımcı "
+                    "tabanı (uyum, şube, hazine) ile tek oturumda yüksek hacimli satış.'\n\n"
+                    "Kapanış cümlesi önerisi: 'Bu eğitimi aynı Swissotel programının "
+                    "ikinci günü olarak planlayabiliriz, ekstra organizasyon maliyeti "
+                    "olmadan.'\n\n"
+                    "Eğitmen: Alpaslan Çakır (CAMS) veya Ali Ekber Polat (Av., LL.M.)."
+                ),
+            },
+            "3": {
+                "baslik": "[30-45 dk] CAMS Sertifika Programı — Prestij Odaklı Upsell",
+                "detay": (
+                    "Neden üçüncü sırada: İlk iki madde kurumu ikna ettikten sonra, "
+                    "CAMS bireysel kariyer değeri üzerinden hem kurumsal toplu satışı "
+                    "hem de bireysel kaydı aynı anda tetikler — toplantıyı 'tek eğitim "
+                    "satışından' 'çoklu gelir kanalına' çevirir.\n\n"
+                    "Toplantıda vurgu: 'Dünyada en çok tanınan AML sertifikası. Katılımcılar "
+                    "hem TBB üzerinden hem bireysel olarak kayıt yaptırabilir.'\n\n"
+                    "Kapanış cümlesi önerisi: 'CAMS'i üçüncü modül olarak ekleyip, "
+                    "Swissotel programını 3 günlük bütünleşik bir sertifika serisine "
+                    "dönüştürebiliriz.'\n\n"
+                    "Eğitmen: Alpaslan Çakır (CAMS) — Denizbank AML&CFT Bölüm Müdürü."
+                ),
+            },
+            "4": {
+                "baslik": "[45-60 dk] Kapanış — Swissotel Ekim/Kasım Teklif Paketi",
+                "detay": (
+                    "Önerilen paket: 3 eğitim, Swissotel'de arka arkaya günlerde "
+                    "(veya iki hafta arayla), TBB Eğitim Merkezi takvimine entegre.\n\n"
+                    "Model önerisi: Model A (Gelir Paylaşımı) veya Model B (Hacim Odaklı "
+                    "Paket) — TBB'ye sıfır maliyetle ek gelir vurgusu tekrar edilmeli.\n\n"
+                    "Kapanış sorusu: 'Ekim mi Kasım mı sizin için daha uygun, ve hangi "
+                    "sırayla ilerlemek istersiniz?' — bu, toplantıyı 'evet/hayır' "
+                    "değil 'hangi tarih' sorusuna çevirir."
+                ),
+            },
+        },
+    },
 }
 
 # Ana menüde bölümlerin görünme sırası (feedback ve kapatma ayrı ele alınır)
 SECTION_ORDER = [
+    "tbb_toplanti_pitch",
     "tbb_gundem",
     "sektorel_handikaplar",
     "stratejiler",
