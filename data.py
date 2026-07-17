@@ -441,3 +441,115 @@ SECTION_ORDER = [
     "cross_sell",
     "tbb_onerilen_egitimler",
 ]
+
+# ==============================================================================
+# TBB DELIVERY — Resmi Broşür (Dış Sunum, Sadece 3 One-Shot Eğitim)
+# ==============================================================================
+BROCHURE = {
+    "event_info": {
+        "title": "TBB Üye Bankalar İçin Özel Eğitim Programı",
+        "subtitle": "Ekim – Kasım 2026 · Swissotel The Bosphorus, İstanbul",
+        "partner_line": (
+            "İFE İstanbul Finans Enstitüsü — EBTN Üyesi · ACAMS Yetkili Hazırlık Merkezi · "
+            "IFRS Sustainability Alliance Türkiye Üyesi · 15+ Yıl Deneyim · 500+ Kurumsal Müşteri"
+        ),
+    },
+    "programs": [
+        {
+            "id": "surdurulebilirlik",
+            "badge": "Program 1",
+            "title": "Sürdürülebilirlik Raporlama ve İklim Riskleri",
+            "tagline": "TSRS uyumu artık ertelenemez bir mevzuat zorunluluğu",
+            "summary": (
+                "Sürdürülebilirlik düzenlemeleri, ESG raporlama standartları (GRI, TCFD), "
+                "karbon piyasaları ve iklim risk analizi konularında uzmanlık kazandırılır. "
+                "Kurum içi ESG entegrasyonu ve uyum süreçleri programın merkezinde yer alır."
+            ),
+            "modules": [
+                "Sürdürülebilirlik Düzenlemeleri ve TSRS Çerçevesi",
+                "ESG Raporlama Standartları (GRI, TCFD)",
+                "Karbon Piyasaları ve Emisyon Yönetimi",
+                "İklim Risk Analizi ve Senaryo Çalışmaları",
+                "Kurum İçi ESG Entegrasyonu ve Uyum Süreçleri",
+            ],
+            "audience": [
+                "Sürdürülebilirlik ve ESG Birimi Çalışanları",
+                "Kredi ve Risk Yönetimi Ekipleri",
+                "Finansal Raporlama ve Muhasebe Uzmanları",
+                "Yatırımcı İlişkileri Profesyonelleri",
+                "İç Denetim ve Uyum Ekipleri",
+            ],
+            "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf Seçeneği",
+            "duration": "Önerilen Süre: 2 Gün",
+            "authority": "IFRS Sustainability Alliance Türkiye üyeliği kapsamında hazırlanmıştır.",
+        },
+        {
+            "id": "masak",
+            "badge": "Program 2",
+            "title": "MASAK Uyum Görevlisi Yetkilendirme Sınavı Hazırlık Eğitimi",
+            "tagline": "Zorunlu, geniş katılımlı, tek oturumda yüksek hacimli katılım potansiyeli",
+            "summary": (
+                "5549 sayılı Kanun, Terörizmin Finansmanı yükümlülükleri ve uyum programı "
+                "mevzuatı çerçevesinde MASAK Uyum Görevlisi Yetkilendirme Sınavı'na yönelik "
+                "kapsamlı hazırlık programı. Teorik anlatım, yoğun soru çözüm pratiği ve "
+                "vaka çalışmalarıyla desteklenir."
+            ),
+            "modules": [
+                "Modül 1 — Hukuki Çerçeve ve AML/CFT Temel Kavramlar",
+                "MASAK ve Uyum Mevzuatı, 5549 Sayılı Kanun",
+                "Terörizmin Finansmanı ve Malvarlığının Dondurulması",
+                "Modül 2 — Uyum Yönetimi, KYC ve Uygulama Pratikleri",
+                "Risk Bazlı Yaklaşım, Müşterini Tanı (KYC)",
+                "Şüpheli İşlem Bildirimi (ŞİB), Deneme Testleri ve Vaka Analizleri",
+            ],
+            "audience": [
+                "Uyum Görevlisi Adayları",
+                "AML / CFT Uyum Uzmanları",
+                "İç Denetim ve İç Kontrol Uzmanları",
+                "Şube Yöneticileri ve Operasyon Ekipleri",
+                "Avukatlar ve Mali Müşavirler",
+            ],
+            "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf (Zoom)",
+            "duration": "2 Gün (Toplam 12 Saat)",
+            "authority": "SPL (Sermaye Piyasası Lisanslama Sicil ve Eğitim Kuruluşu) sınav formatına tam uyumlu içerik.",
+        },
+        {
+            "id": "cams",
+            "badge": "Program 3",
+            "title": "CAMS — Certified Anti-Money Laundering Specialist",
+            "tagline": "Dünyanın 1 numaralı AML sertifikası — 100+ ülkede geçerli",
+            "summary": (
+                "ACAMS tarafından verilen, kara para aklama ve terörün finansmanıyla mücadele "
+                "alanındaki en prestijli uluslararası sertifika. İFE, MASAK düzenlemelerini "
+                "uluslararası ACAMS içerikleriyle harmanlayan Türkiye'nin en kapsamlı CAMS "
+                "hazırlık programını sunar."
+            ),
+            "modules": [
+                "Alan 1-2 — Riskler, Yöntemler ve Uyum Standartları",
+                "Kara Para Aklama ve Terörün Finansmanı Yöntemleri",
+                "Uluslararası Standartlar (FATF, Basel, Wolfsberg)",
+                "Alan 3-4 — Uyum Programları ve Soruşturma Süreci",
+                "Müşteri Durum Tespiti (CDD/KYC), Yaptırım Taraması",
+                "Şüpheli İşlem Bildirimi (STR/SAR)",
+            ],
+            "audience": [
+                "Uyum Direktörleri ve Uyum Birimi Yöneticileri",
+                "AML Uzmanları ve Finansal Suç Analistleri",
+                "KYC Analistleri",
+                "Risk ve İç Denetim Yöneticileri",
+                "Bireysel Kariyer Gelişimi Hedefleyen Bankacılık Profesyonelleri",
+            ],
+            "format": "6 Oturum x 2 Saat + ACAMS Canlı Dersler, Soru Bankası, Mock Sınav",
+            "duration": "Sınav: 3,5 Saat / 120 Soru (Pearson VUE Test Merkezleri)",
+            "authority": "ACAMS Yetkili Hazırlık Merkezi — %80 sınav geçme oranı.",
+        },
+    ],
+    "closing": {
+        "title": "Swissotel The Bosphorus — Ekim / Kasım 2026 Teklif Paketi",
+        "text": (
+            "Üç program, TBB Eğitim Merkezi takvimine entegre şekilde, ardışık günlerde ya da "
+            "modüler bir seri olarak planlanabilir. Kurumsal katılım modelleriyle TBB'ye "
+            "ek maliyetsiz gelir imkanı sunulmaktadır."
+        ),
+    },
+}

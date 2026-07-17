@@ -14,7 +14,7 @@ not/değerlendirme kalıcılığı feedback_store.py'de tutulur.
 
 import streamlit as st
 
-from data import SECTIONS, SECTION_ORDER
+from data import SECTIONS, SECTION_ORDER, BROCHURE
 from feedback_store import load_feedback, add_feedback, clear_feedback
 
 # --------------------------------------------------------------------------
@@ -114,14 +114,22 @@ st.sidebar.markdown("## 🤝 TBB - İFE")
 st.sidebar.caption("Stratejik Ortaklık Sunumu")
 st.sidebar.markdown("---")
 
-nav_labels = ["🏠 Ana Sayfa"] + [
-    f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
-] + ["📝 Değerlendirme ve Notlar"]
+view_mode = st.sidebar.radio(
+    "Görünüm Modu",
+    ["🏢 İç Ekip Görünümü", "📄 TBB Sunum (Broşür)"],
+    label_visibility="collapsed",
+)
+st.sidebar.markdown("---")
 
-nav_keys = ["home"] + SECTION_ORDER + ["feedback"]
+if view_mode == "🏢 İç Ekip Görünümü":
+    nav_labels = ["🏠 Ana Sayfa"] + [
+        f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
+    ] + ["📝 Değerlendirme ve Notlar"]
 
-selected_label = st.sidebar.radio("Bölüm seçin", nav_labels, label_visibility="collapsed")
-selected_key = nav_keys[nav_labels.index(selected_label)]
+    nav_keys = ["home"] + SECTION_ORDER + ["feedback"]
+
+    selected_label = st.sidebar.radio("Bölüm seçin", nav_labels, label_visibility="collapsed")
+    selected_key = nav_keys[nav_labels.index(selected_label)]
 
 # --------------------------------------------------------------------------
 # ÜST BAŞLIK
@@ -182,6 +190,152 @@ def render_home():
 
 
 # --------------------------------------------------------------------------
+# TBB SUNUM (BROŞÜR) — Dış sunum görünümü
+# --------------------------------------------------------------------------
+def render_brochure():
+    st.markdown(
+        """
+        <style>
+            .brochure-hero {
+                background: linear-gradient(135deg, #0B1F3A 0%, #16305C 100%);
+                padding: 2.2rem 2.5rem;
+                border-radius: 14px;
+                margin-bottom: 2rem;
+                border-left: 8px solid #C8A24A;
+            }
+            .brochure-hero h1 {
+                color: white;
+                font-size: 1.8rem;
+                margin: 0 0 0.3rem 0;
+            }
+            .brochure-hero p {
+                color: #C9D3E0;
+                margin: 0.2rem 0;
+                font-size: 1rem;
+            }
+            .program-card {
+                background: white;
+                border: 1px solid #E3E7EE;
+                border-radius: 14px;
+                padding: 1.6rem 1.8rem;
+                margin-bottom: 1.6rem;
+                box-shadow: 0 2px 10px rgba(11,31,58,0.06);
+            }
+            .program-badge {
+                display: inline-block;
+                background: #C8A24A;
+                color: #0B1F3A;
+                font-weight: 700;
+                padding: 0.25rem 0.9rem;
+                border-radius: 999px;
+                font-size: 0.8rem;
+                margin-bottom: 0.7rem;
+            }
+            .program-card h2 {
+                color: #0B1F3A;
+                margin: 0 0 0.2rem 0;
+                font-size: 1.4rem;
+            }
+            .program-tagline {
+                color: #C8A24A;
+                font-weight: 600;
+                font-size: 0.95rem;
+                margin-bottom: 0.8rem;
+            }
+            .program-summary {
+                color: #384357;
+                line-height: 1.55;
+                margin-bottom: 1rem;
+            }
+            .module-list, .audience-list {
+                margin: 0;
+                padding-left: 1.1rem;
+            }
+            .module-list li, .audience-list li {
+                margin-bottom: 0.35rem;
+                color: #1F2A3D;
+            }
+            .meta-row {
+                display: flex;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                margin-top: 1.1rem;
+                padding-top: 1rem;
+                border-top: 1px solid #EEF1F5;
+                font-size: 0.85rem;
+                color: #5A6472;
+            }
+            .meta-row strong { color: #0B1F3A; }
+            .closing-box {
+                background: #F8F6EF;
+                border: 1px solid #E9DFC3;
+                border-radius: 14px;
+                padding: 1.6rem 1.8rem;
+                margin-top: 1rem;
+            }
+            .closing-box h3 { color: #0B1F3A; margin-top: 0; }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    event = BROCHURE["event_info"]
+    st.markdown(
+        f"""
+        <div class="brochure-hero">
+            <h1>{event['title']}</h1>
+            <p>{event['subtitle']}</p>
+            <p>{event['partner_line']}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    for program in BROCHURE["programs"]:
+        modules_html = "".join(f"<li>{m}</li>" for m in program["modules"])
+        audience_html = "".join(f"<li>{a}</li>" for a in program["audience"])
+        st.markdown(
+            f"""
+            <div class="program-card">
+                <span class="program-badge">{program['badge']}</span>
+                <h2>{program['title']}</h2>
+                <div class="program-tagline">{program['tagline']}</div>
+                <div class="program-summary">{program['summary']}</div>
+                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Eğitim İçeriği</strong>
+                        <ul class="module-list">{modules_html}</ul>
+                    </div>
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Hedef Kitle</strong>
+                        <ul class="audience-list">{audience_html}</ul>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <span><strong>Format:</strong> {program['format']}</span>
+                    <span><strong>Süre:</strong> {program['duration']}</span>
+                </div>
+                <div class="meta-row">
+                    <span>{program['authority']}</span>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    closing = BROCHURE["closing"]
+    st.markdown(
+        f"""
+        <div class="closing-box">
+            <h3>{closing['title']}</h3>
+            <p>{closing['text']}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# --------------------------------------------------------------------------
 # GERİ BİLDİRİM SAYFASI
 # --------------------------------------------------------------------------
 def render_feedback():
@@ -227,9 +381,12 @@ def render_feedback():
 # --------------------------------------------------------------------------
 # YÖNLENDİRME
 # --------------------------------------------------------------------------
-if selected_key == "home":
-    render_home()
-elif selected_key == "feedback":
-    render_feedback()
+if view_mode == "📄 TBB Sunum (Broşür)":
+    render_brochure()
 else:
-    render_section(selected_key)
+    if selected_key == "home":
+        render_home()
+    elif selected_key == "feedback":
+        render_feedback()
+    else:
+        render_section(selected_key)
