@@ -482,6 +482,24 @@ BROCHURE = {
             "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf Seçeneği",
             "duration": "Önerilen Süre: 2 Gün",
             "authority": "IFRS Sustainability Alliance Türkiye üyeliği kapsamında hazırlanmıştır.",
+            "instructor": {
+                "name": "Hasan Sarıçiçek",
+                "title": "Dr.",
+                "linkedin": "https://ife.com.tr/tr/instructors/hasan-saricicek",
+                "bio": (
+                    "İklim teknolojileri ve enerji dönüşümü yatırımları alanında 20 yılı aşkın "
+                    "deneyim sahibi. Türkiye, Avrupa ve ABD'de sermaye tahsisi, M&A ve "
+                    "yapılandırılmış finansman süreçlerinde aktif rol almaktadır. Hâlen Naturel "
+                    "Holding bünyesinde İklim Teknolojileri ve E-Mobilite yatırımlarından "
+                    "sorumlu direktör."
+                ),
+                "expertise": ["Sürdürülebilir Finans ve ESG", "İklim Teknolojileri ve E-Mobilite"],
+            },
+            "level": "Orta",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_Chat_GPT_Image_Nov_6_2025_01_32_18_AM_751819e6e4.png",
+            "price_options": [
+                {"label": "Fiyat Bilgisi", "price": "Kurumsal teklif ile netleştirilecek", "duration": ""},
+            ],
         },
         {
             "id": "masak",
@@ -512,6 +530,27 @@ BROCHURE = {
             "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf (Zoom)",
             "duration": "2 Gün (Toplam 12 Saat)",
             "authority": "SPL (Sermaye Piyasası Lisanslama Sicil ve Eğitim Kuruluşu) sınav formatına tam uyumlu içerik.",
+            "instructor": {
+                "name": "Ali Ekber Polat",
+                "title": "Av., LL.M.",
+                "linkedin": "https://tr.linkedin.com/in/ali-ekber-polat-b55724316",
+                "bio": (
+                    "Marmara Üniversitesi Hukuk Fakültesi 2003 mezunu. 2004 yılında Polat Hukuk "
+                    "Bürosu'nu kurmuştur. Okan Üniversitesi'nde hukuk dersleri vermektedir. İFE "
+                    "bünyesinde finans profesyonellerine yönelik hukuki uyum eğitimleri "
+                    "vermektedir."
+                ),
+                "expertise": [
+                    "AML/MASAK — Suç Gelirlerinin Aklanmasının Önlenmesi",
+                    "KVKK — Kişisel Verilerin Korunması Hukuku",
+                ],
+            },
+            "level": "Başlangıç",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_masak_yetkilendirme_resim_web_d9aabf5730.jpeg",
+            "price_options": [
+                {"label": "Canlı Sanal Sınıf", "price": "₺29.800", "duration": "2 Gün"},
+                {"label": "Kendi Hızında (Online)", "price": "₺8.900", "duration": "Kayıt İzleme"},
+            ],
         },
         {
             "id": "cams",
@@ -542,6 +581,27 @@ BROCHURE = {
             "format": "6 Oturum x 2 Saat + ACAMS Canlı Dersler, Soru Bankası, Mock Sınav",
             "duration": "Sınav: 3,5 Saat / 120 Soru (Pearson VUE Test Merkezleri)",
             "authority": "ACAMS Yetkili Hazırlık Merkezi — %80 sınav geçme oranı.",
+            "instructor": {
+                "name": "Alpaslan Çakır",
+                "title": "CAMS",
+                "linkedin": "https://www.linkedin.com/in/alpaslan-cakir-7b0b1098/",
+                "bio": (
+                    "Türkiye'nin önde gelen AML ve Compliance uzmanlarından biri. Denizbank A.Ş. "
+                    "bünyesinde AML & CFT Uyum Bölüm Müdürü. Türkiye Bankalar Birliği Bankacılar "
+                    "Dergisi'nde aklama ve finansal suçlar üzerine makalelerin yazarı. CAMS "
+                    "sertifikasına sahiptir."
+                ),
+                "expertise": [
+                    "AML — Suç Gelirlerinin Aklanmasının Önlenmesi",
+                    "CFT — Terörizmin Finansmanı ile Mücadele",
+                ],
+            },
+            "level": "İleri",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_ACAMS_Banner_full_good_aedb330910.jpg",
+            "price_options": [
+                {"label": "Sınıf İçi (Swissotel)", "price": "₺39.800", "duration": "2 Gün"},
+                {"label": "Canlı Sanal Sınıf", "price": "₺29.800", "duration": "2 Gün"},
+            ],
         },
     ],
     "closing": {

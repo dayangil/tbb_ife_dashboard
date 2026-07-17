@@ -116,7 +116,8 @@ st.sidebar.markdown("---")
 
 view_mode = st.sidebar.radio(
     "Görünüm Modu",
-    ["🏢 İç Ekip Görünümü", "📄 TBB Sunum (Broşür)"],
+    ["📄 TBB Sunum (Broşür)", "🏢 İç Ekip Görünümü"],
+    index=0,
     label_visibility="collapsed",
 )
 st.sidebar.markdown("---")
@@ -221,6 +222,52 @@ def render_brochure():
                 margin-bottom: 1.6rem;
                 box-shadow: 0 2px 10px rgba(11,31,58,0.06);
             }
+            .program-image {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+                max-height: 220px;
+                object-fit: cover;
+            }
+            .level-badge {
+                display: inline-block;
+                background: #EEF1F5;
+                color: #0B1F3A;
+                font-weight: 600;
+                padding: 0.2rem 0.8rem;
+                border-radius: 999px;
+                font-size: 0.78rem;
+                margin-left: 0.6rem;
+            }
+            .price-row {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin-top: 1rem;
+            }
+            .price-card {
+                background: #0B1F3A;
+                color: white;
+                border-radius: 10px;
+                padding: 0.9rem 1.2rem;
+                flex: 1;
+                min-width: 180px;
+            }
+            .price-card .price-label {
+                font-size: 0.78rem;
+                color: #C9D3E0;
+                margin-bottom: 0.2rem;
+            }
+            .price-card .price-value {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #C8A24A;
+            }
+            .price-card .price-duration {
+                font-size: 0.78rem;
+                color: #C9D3E0;
+                margin-top: 0.2rem;
+            }
             .program-badge {
                 display: inline-block;
                 background: #C8A24A;
@@ -294,10 +341,57 @@ def render_brochure():
     for program in BROCHURE["programs"]:
         modules_html = "".join(f"<li>{m}</li>" for m in program["modules"])
         audience_html = "".join(f"<li>{a}</li>" for a in program["audience"])
+
+        price_cards_html = "".join(
+            f"""<div class="price-card">
+                <div class="price-label">{p['label']}</div>
+                <div class="price-value">{p['price']}</div>
+                <div class="price-duration">{p['duration']}</div>
+            </div>"""
+            for p in program.get("price_options", [])
+        )
+        image_html = ""
+        if program.get("image"):
+            image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
+
+        instructor = program.get("instructor")
+        instructor_html = ""
+        if instructor:
+            linkedin_html = ""
+            if instructor.get("linkedin"):
+                link_text = "LinkedIn Profili →" if "linkedin.com" in instructor["linkedin"] else "Detaylı Özgeçmiş →"
+                linkedin_html = (
+                    f'<a href="{instructor["linkedin"]}" target="_blank" '
+                    f'style="color:#0B1F3A; text-decoration:underline; font-size:0.85rem;">'
+                    f'{link_text}</a>'
+                )
+            expertise_chips = "".join(
+                f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
+                f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
+                f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
+                for exp in instructor.get("expertise", [])
+            )
+            initials = "".join(part[0] for part in instructor["name"].split()[:2]).upper()
+            instructor_html = f"""
+            <div style="margin-top:1.2rem; padding-top:1.1rem; border-top:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
+                <div style="flex-shrink:0; width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem;">{initials}</div>
+                <div style="flex:1; min-width:200px;">
+                    <div style="font-weight:700; color:#0B1F3A; font-size:1rem;">{instructor['name']}
+                        <span style="font-weight:400; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span>
+                    </div>
+                    <p style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.35rem 0 0.5rem 0;">{instructor['bio']}</p>
+                    <div>{expertise_chips}</div>
+                    {f'<div style="margin-top:0.5rem;">{linkedin_html}</div>' if linkedin_html else ""}
+                </div>
+            </div>
+            """
+
         st.markdown(
             f"""
             <div class="program-card">
+                {image_html}
                 <span class="program-badge">{program['badge']}</span>
+                <span class="level-badge">{program.get('level', '')}</span>
                 <h2>{program['title']}</h2>
                 <div class="program-tagline">{program['tagline']}</div>
                 <div class="program-summary">{program['summary']}</div>
@@ -318,6 +412,8 @@ def render_brochure():
                 <div class="meta-row">
                     <span>{program['authority']}</span>
                 </div>
+                <div class="price-row">{price_cards_html}</div>
+                {instructor_html}
             </div>
             """,
             unsafe_allow_html=True,
