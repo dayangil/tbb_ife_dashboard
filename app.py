@@ -14,7 +14,7 @@ not/değerlendirme kalıcılığı feedback_store.py'de tutulur.
 
 import streamlit as st
 
-from data import SECTIONS, SECTION_ORDER, BROCHURE
+from data import SECTIONS, SECTION_ORDER, BROCHURE, FLASH_SALE, IFE_LOGO_WHITE
 from feedback_store import load_feedback, add_feedback, clear_feedback
 
 # --------------------------------------------------------------------------
@@ -122,6 +122,14 @@ view_mode = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 
+if view_mode == "📄 TBB Sunum (Broşür)":
+    brochure_page = st.sidebar.radio(
+        "Program Seçin",
+        ["🎯 Ana Program (3 One-Shot Eğitim)", "⚡ Ek Fırsat (Satış & Pazarlama)"],
+        label_visibility="collapsed",
+    )
+    st.sidebar.markdown("---")
+
 if view_mode == "🏢 İç Ekip Görünümü":
     nav_labels = ["🏠 Ana Sayfa"] + [
         f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
@@ -193,7 +201,7 @@ def render_home():
 # --------------------------------------------------------------------------
 # TBB SUNUM (BROŞÜR) — Dış sunum görünümü
 # --------------------------------------------------------------------------
-def render_brochure():
+def render_brochure_styles():
     st.markdown(
         """
         <style>
@@ -321,15 +329,44 @@ def render_brochure():
                 margin-top: 1rem;
             }
             .closing-box h3 { color: #0B1F3A; margin-top: 0; }
+            .cross-sell-header p {
+                color: #5A6472;
+                font-size: 0.92rem;
+                line-height: 1.55;
+                margin-bottom: 1.5rem;
+            }
+            .bespoke-card {
+                background: #F5F5F5;
+                border: 1px dashed #9AA5B1;
+                border-radius: 12px;
+                padding: 1.2rem 1.5rem;
+                margin-top: 1rem;
+            }
+            .bespoke-badge {
+                display: inline-block;
+                background: #9AA5B1;
+                color: white;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                padding: 0.2rem 0.7rem;
+                border-radius: 999px;
+                font-size: 0.72rem;
+                margin-bottom: 0.5rem;
+            }
         </style>
         """,
         unsafe_allow_html=True,
     )
 
+
+def render_brochure():
+    render_brochure_styles()
+
     event = BROCHURE["event_info"]
     st.markdown(
         f"""
         <div class="brochure-hero">
+            <img src="{IFE_LOGO_WHITE}" alt="İFE Logo" style="height:40px; margin-bottom:1rem;">
             <h1>{event['title']}</h1>
             <p>{event['subtitle']}</p>
             <p>{event['partner_line']}</p>
@@ -432,6 +469,115 @@ def render_brochure():
 
 
 # --------------------------------------------------------------------------
+# TBB SUNUM (BROŞÜR) — Ek Fırsat (Flash Sale) görünümü
+# --------------------------------------------------------------------------
+def render_flash_sale():
+    render_brochure_styles()
+
+    event = FLASH_SALE["event_info"]
+    st.markdown(
+        f"""
+        <div class="brochure-hero">
+            <img src="{IFE_LOGO_WHITE}" alt="İFE Logo" style="height:40px; margin-bottom:1rem;">
+            <h1>{event['title']}</h1>
+            <p>{event['subtitle']}</p>
+            <p>{event['partner_line']}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        f"""
+        <div class="cross-sell-header">
+            <p>{FLASH_SALE['section_intro']}</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    for course in FLASH_SALE["courses"]:
+        modules_html = "".join(f"<li>{m}</li>" for m in course["modules"])
+        audience_html = "".join(f"<li>{a}</li>" for a in course["audience"])
+        price_html = "".join(
+            f"""<div class="price-card">
+                <div class="price-label">{p['label']}</div>
+                <div class="price-value">{p['price']}</div>
+                <div class="price-duration">{p['duration']}</div>
+            </div>"""
+            for p in course.get("price_options", [])
+        )
+        image_html = ""
+        if course.get("image"):
+            image_html = f'<img class="program-image" src="{course["image"]}" alt="{course["title"]}">'
+
+        instructor = course.get("instructor")
+        instructor_html = ""
+        if instructor:
+            expertise_chips = "".join(
+                f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
+                f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
+                f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
+                for exp in instructor.get("expertise", [])
+            )
+            instructor_html = f"""
+            <div style="margin-top:1.2rem; padding-top:1.1rem; border-top:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
+                <div style="width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.3rem; flex-shrink:0;">
+                    {instructor['name'][0]}
+                </div>
+                <div style="flex:1;">
+                    <div style="font-weight:700; color:#0B1F3A; font-size:1.02rem;">{instructor['name']} <span style="font-weight:500; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span></div>
+                    <div style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.4rem 0;">{instructor['bio']}</div>
+                    <div>{expertise_chips}</div>
+                </div>
+            </div>
+            """
+
+        st.markdown(
+            f"""
+            <div class="program-card">
+                {image_html}
+                <span class="program-badge">{course['badge']}</span>
+                <span class="level-badge">{course.get('level', '')}</span>
+                <h2>{course['title']}</h2>
+                <div class="program-tagline">{course['tagline']}</div>
+                <div class="program-summary">{course['summary']}</div>
+                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Eğitim İçeriği</strong>
+                        <ul class="module-list">{modules_html}</ul>
+                    </div>
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Hedef Kitle</strong>
+                        <ul class="audience-list">{audience_html}</ul>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <span><strong>Format:</strong> {course['format']}</span>
+                    <span><strong>Süre:</strong> {course['duration']}</span>
+                </div>
+                <div class="price-row">{price_html}</div>
+                {instructor_html}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    bespoke = FLASH_SALE.get("bespoke")
+    if bespoke:
+        st.markdown(
+            f"""
+            <div class="bespoke-card">
+                <span class="bespoke-badge">{bespoke['status_label']}</span>
+                <h3 style="color:#0B1F3A; margin:0.3rem 0;">{bespoke['title']}</h3>
+                <p style="color:#5A6472; font-size:0.9rem; line-height:1.5; margin:0;">{bespoke['note']}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+# --------------------------------------------------------------------------
 # GERİ BİLDİRİM SAYFASI
 # --------------------------------------------------------------------------
 def render_feedback():
@@ -478,7 +624,10 @@ def render_feedback():
 # YÖNLENDİRME
 # --------------------------------------------------------------------------
 if view_mode == "📄 TBB Sunum (Broşür)":
-    render_brochure()
+    if brochure_page == "🎯 Ana Program (3 One-Shot Eğitim)":
+        render_brochure()
+    else:
+        render_flash_sale()
 else:
     if selected_key == "home":
         render_home()

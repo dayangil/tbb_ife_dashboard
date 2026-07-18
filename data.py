@@ -429,6 +429,71 @@ SECTIONS = {
             },
         },
     },
+    "flash_sale_pitch_strategy": {
+        "title": "Flash Sale Stratejisi — Satış Pitch Notları (SADECE İÇ EKİP)",
+        "icon": "🎯💬",
+        "menu_desc": "Satış & Pazarlama bundle'ının TBB'ye nasıl sunulacağına dair iç notlar",
+        "items": {
+            "1": {
+                "baslik": "Neden 'Flash Sale' Yaklaşımı Kullanıyoruz",
+                "detay": (
+                    "Ana 3 programın satışı kapandıktan sonra, toplantının son "
+                    "dakikalarında hızlıca 'bir fırsat daha var' diyerek bu 2 eğitimi "
+                    "sunuyoruz. Amaç: TBB'nin 'evet' modundayken ek bir karar almasını "
+                    "kolaylaştırmak. Uzun bir sunum değil, 2-3 cümlelik bir teklif "
+                    "olarak konumlandırılmalı.\n\n"
+                    "Dip not: Bu asla ana teklifin önüne geçmemeli — sadece kapanışta "
+                    "hızlı bir ek kazanç fırsatı olarak sunulmalı."
+                ),
+            },
+            "2": {
+                "baslik": "Satış Pitch Önerisi — Finans Dışı Çalışanlar",
+                "detay": (
+                    "Önerilen açılış cümlesi: 'Bir de aklınızda bulunsun — bu 3 "
+                    "programın dışında, tüm banka genelinde finans dışı çalışanlarınız "
+                    "için çok uygun maliyetli, 1 günlük bir temel finans okuryazarlığı "
+                    "eğitimimiz var. İsterseniz aynı Swissotel takvimine ekleyebiliriz.'\n\n"
+                    "Dip not: Bu eğitim ucuz ve düşük riskli olduğu için 'evet' almak "
+                    "kolay olabilir — bütçe onayı gerektirmeyecek kadar küçük bir kalem "
+                    "olarak sunulabilir."
+                ),
+            },
+            "3": {
+                "baslik": "Satış Pitch Önerisi — Satış ve Pazarlama Ekibi Bundle",
+                "detay": (
+                    "Önerilen açılış cümlesi: 'Bankanızın satış ve pazarlama "
+                    "ekibinin TAMAMINI bu eğitimden geçirmenizi öneriyoruz — tek "
+                    "kişilik değil, ekip çapında bir yatırım olarak düşünün. Bu "
+                    "şekilde eğitim gerçek bir davranış değişikliğine dönüşüyor.'\n\n"
+                    "Dip not: Toplu katılım (10+ kişi) için kurumsal indirim "
+                    "önerilebilir — fiyat esnekliği İFE ile teyit edilmeli, TBB'ye "
+                    "somut bir % rakamı verilmeden önce onay alınmalı."
+                ),
+            },
+            "4": {
+                "baslik": "Fiyat / Bundle Pazarlık Alanı (İç Not)",
+                "detay": (
+                    "Ana 3 program + bu 2 ek eğitim birlikte alınırsa toplu bir "
+                    "paket indirimi önerilebilir mi? Bu konuda İFE finans ekibiyle "
+                    "netleştirilmesi gereken bir esneklik payı var — toplantıda "
+                    "rakam verilmeden önce onay alınmalı.\n\n"
+                    "Satış Teknikleri (planlanan/bespoke) için: eğer TBB ilgi "
+                    "gösterirse, 'kapsamlı bir teklif hazırlayıp size döneriz' "
+                    "denilmeli — anında fiyat verilmemeli."
+                ),
+            },
+            "5": {
+                "baslik": "Zamanlama ve Sunum Sırası (İç Not)",
+                "detay": (
+                    "1 saatlik toplantının 55. dakikasında, kapanış sorusundan "
+                    "hemen önce 30 saniyelik bir 'bir de şunu ekleyelim' anı olarak "
+                    "sunulmalı. Detaya girmeden, broşürü bırakıp 'bunu da "
+                    "değerlendirin' demek yeterli — toplantının odağını ana 3 "
+                    "programdan kaydırmamak kritik."
+                ),
+            },
+        },
+    },
 }
 
 # Ana menüde bölümlerin görünme sırası (feedback ve kapatma ayrı ele alınır)
@@ -440,6 +505,7 @@ SECTION_ORDER = [
     "modeller",
     "cross_sell",
     "tbb_onerilen_egitimler",
+    "flash_sale_pitch_strategy",
 ]
 
 # ==============================================================================
@@ -610,6 +676,133 @@ BROCHURE = {
             "Üç program, TBB Eğitim Merkezi takvimine entegre şekilde, ardışık günlerde ya da "
             "modüler bir seri olarak planlanabilir. Kurumsal katılım modelleriyle TBB'ye "
             "ek maliyetsiz gelir imkanı sunulmaktadır."
+        ),
+    },
+}
+
+# ==============================================================================
+# LOGO (Satış odaklı TBB broşürlerinde kullanılacak)
+# ==============================================================================
+IFE_LOGO_WHITE = "https://ife.com.tr/_next/image?url=%2Fife-logo-white.webp&w=384&q=75"
+IFE_LOGO_COLOR = "https://ife.com.tr/_next/image?url=%2Fife-full-logo.png&w=750&q=75"
+
+# ==============================================================================
+# FLASH SALE — Satış & Pazarlama Ekipleri Bundle (AYRI KATEGORİ, ana broşürden bağımsız)
+# ==============================================================================
+FLASH_SALE = {
+    "event_info": {
+        "title": "Ek Fırsat: Satış ve Pazarlama Ekipleri için Finansal Yetkinlik Programı",
+        "subtitle": "TBB Üye Bankalarının Satış & Pazarlama Organizasyonuna Özel Tamamlayıcı Program",
+        "partner_line": "İstanbul Finans Enstitüsü (İFE) — Kurumsal Eğitim Çözümleri",
+    },
+    "section_intro": (
+        "Ana programın tamamlayıcısı olarak, bankanın Satış ve Pazarlama ekibinin "
+        "tamamına yönelik hızlı entegre edilebilir bir eğitim paketi. Tek bir yönetici "
+        "yerine ekibin tamamının aynı eğitimden geçmesi, ortak bir finansal dil ve "
+        "karar standardı yaratarak eğitimin kurumsal etkisini kalıcı hale getirir. "
+        "Ekim–Kasım Swissotel programına ek modül olarak entegre edilebilir."
+    ),
+    "courses": [
+        {
+            "id": "finans-disi",
+            "badge": "Ek Program 1",
+            "title": "Finans Dışı Çalışanlar için Temel Finans",
+            "tagline": "Finans dilini bilmeyen yöneticiler için temel okuryazarlık",
+            "summary": (
+                "Finansçı olmayan yöneticilerin şirketin finansal yapısını doğru "
+                "okuyabilmesini ve günlük iş kararlarını finansal bakış açısıyla "
+                "değerlendirebilmesini sağlar. Finans jargonundan arındırılmış, "
+                "iş hayatından örneklerle desteklenen bir anlatım kullanılır."
+            ),
+            "modules": [
+                "Finansın İş Dünyasındaki Rolü",
+                "Temel Finansal Kavramlar (Gelir, Gider, Kâr, Nakit, Maliyet)",
+                "Finansal Tabloları Tanıyalım (Gelir Tablosu, Bilanço, Nakit Akış)",
+                "Finansal Göstergeler ve Yorumlama",
+                "Finansal Bakış Açısıyla Karar Alma",
+            ],
+            "audience": [
+                "Satış ve Pazarlama Yöneticileri",
+                "Operasyon ve Proje Yöneticileri",
+                "İnsan Kaynakları Yöneticileri",
+                "Finansla Birlikte Çalışan Tüm İş Birimi Yöneticileri",
+            ],
+            "format": "Sınıf İçi (Swissotel) / Canlı Sanal Sınıf / Kendi Hızında Online",
+            "duration": "1 Gün",
+            "level": "Başlangıç",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_web_resim_238f9ca8ff.jpg",
+            "price_options": [
+                {"label": "Sınıf İçi (Swissotel)", "price": "₺29.800", "duration": "1 Gün"},
+                {"label": "Canlı Sanal Sınıf", "price": "₺18.900", "duration": "1 Gün"},
+                {"label": "Kendi Hızında (Online)", "price": "₺6.900", "duration": "Kayıt İzleme"},
+            ],
+            "instructor": {
+                "name": "İFE Kurumsal Eğitim Ekibi",
+                "title": "Eğitmen Ataması İFE ile Netleştirilecek",
+                "linkedin": None,
+                "bio": (
+                    "Bu program için eğitmen ataması, TBB'nin katılımcı profiline göre "
+                    "İFE tarafından yapılacaktır. Kurumsal grup eğitimlerinde İFE, en "
+                    "uygun eğitmeni ekiple birlikte belirler."
+                ),
+                "expertise": [],
+            },
+        },
+        {
+            "id": "satis-pazarlama-finans",
+            "badge": "Ek Program 2",
+            "title": "Satış ve Pazarlama Yöneticileri için Finans",
+            "tagline": "Satışın sadece ciro değil, nakit, risk ve sorumluluk yarattığı bilinci",
+            "summary": (
+                "Satış ve pazarlama yöneticilerinin finansal tabloları anlamasını, "
+                "satış süreçlerinin mali sonuçlarını değerlendirmesini ve finansal "
+                "riskleri doğru yönetmesini sağlar. Belge düzeni, teslimin ispatı, "
+                "ödeme araçları ve tahsilat riskleri gibi pratik konuları da kapsar."
+            ),
+            "modules": [
+                "Satış ve Finans Arasındaki İlişki (Ciro–Kâr–Nakit Farkı)",
+                "Temel Finansal Tablolar — Satış Perspektifiyle",
+                "Satışta Belge Düzeni ve Teslimin İspatı",
+                "Mali Sorumluluklar ve Riskler (Vergi, KDV, Tahsilat)",
+                "Ödeme Araçları ve Tahsilat Yönetimi",
+            ],
+            "audience": [
+                "Satış Yöneticileri",
+                "Pazarlama Yöneticileri",
+                "İş Geliştirme Yöneticileri",
+                "Satışla Doğrudan Temas Eden Tüm Yöneticiler",
+                "Ön Muhasebe Çalışanları",
+            ],
+            "format": "Sınıf İçi (Swissotel) / Canlı Sanal Sınıf",
+            "duration": "1 Gün",
+            "level": "Başlangıç",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_satis_icin_temel_finans_web_rsim_a63c771bf4.jpeg",
+            "price_options": [
+                {"label": "Sınıf İçi (Swissotel)", "price": "₺23.800", "duration": "1 Gün"},
+                {"label": "Canlı Sanal Sınıf", "price": "₺18.900", "duration": "1 Gün"},
+            ],
+            "instructor": {
+                "name": "İFE Kurumsal Eğitim Ekibi",
+                "title": "Eğitmen Ataması İFE ile Netleştirilecek",
+                "linkedin": None,
+                "bio": (
+                    "Bu program için eğitmen ataması, TBB'nin katılımcı profiline göre "
+                    "İFE tarafından yapılacaktır. Kurumsal grup eğitimlerinde İFE, en "
+                    "uygun eğitmeni ekiple birlikte belirler."
+                ),
+                "expertise": [],
+            },
+        },
+    ],
+    "bespoke": {
+        "status_label": "PLANLANAN",
+        "title": "Satış Teknikleri",
+        "note": (
+            "Bu program şu anda İFE kataloğunda yer almamaktadır. TBB'nin talebi "
+            "doğrultusunda İFE tarafından özel (bespoke) olarak geliştirilebilir. "
+            "Satış psikolojisi, ikna teknikleri, itiraz yönetimi ve kapanış "
+            "stratejilerini içeren, bankacılık sektörüne özel bir müfredat "
+            "önerilir — mevcut bir kurs değil, teklife bağlı bir geliştirmedir."
         ),
     },
 }
