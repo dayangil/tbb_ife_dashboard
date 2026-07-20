@@ -138,8 +138,8 @@ if view_mode == "🏢 İç Ekip Görünümü":
 st.markdown(
     """
     <div class="ife-header">
-        <h1>TBB - İFE Stratejik Ortaklık Sunumu</h1>
-        <p>Sektörel değerlendirme ve önerilen iş birliği modelleri</p>
+        <h1>Sektörün Gücü, Geleceğin Yetkinlikleri</h1>
+        <p>TBB – İFE stratejik uzmanlık ve program geliştirme iş birliği</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -729,6 +729,12 @@ def _render_course_link_html(source_url):
     )
 
 
+def _readiness_badge_html(item):
+    if not item.get("readiness"):
+        return ""
+    return f'<span class="level-badge">{item["readiness"]}</span>'
+
+
 def _component_card_html(component):
     instructor_html = _render_instructor_html(component.get("instructor"))
     price_html = _render_price_html(component.get("price_options", []))
@@ -738,11 +744,12 @@ def _component_card_html(component):
         if component.get("authority") else ""
     )
     link_html = _render_course_link_html(component.get("source_url"))
+    readiness_html = _readiness_badge_html(component)
 
     return _html_block(
         f"""
         <div class="component-card">
-            <div class="component-name">{component['name']} <span class="level-badge">{component.get('level', '')}</span></div>
+            <div class="component-name">{component['name']} <span class="level-badge">{component.get('level', '')}</span> {readiness_html}</div>
             {note_html}
             {instructor_html}
             <div class="meta-row">
@@ -769,6 +776,18 @@ def _render_main_program(program):
     if program.get("image"):
         image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
 
+    tbb_relevance_html = ""
+    if program.get("tbb_relevance"):
+        tbb_relevance_html = (
+            f'<p style="color:#5A6472; font-size:0.88rem; font-style:italic; '
+            f'margin:0 0 0.9rem 0;"><strong>TBB Açısından Önemi:</strong> '
+            f'{program["tbb_relevance"]}</p>'
+        )
+
+    framing_html = ""
+    if program.get("framing"):
+        framing_html = f'<div class="method-box"><strong>Mevcut Portföy:</strong> {program["framing"]}</div>'
+
     instructor_html = _render_instructor_html(program.get("instructor"))
 
     meta_html = ""
@@ -785,6 +804,7 @@ def _render_main_program(program):
         pricing_html = f'<div class="price-note-badge">{program["pricing_note"]}</div>'
 
     link_html = _render_course_link_html(program.get("source_url"))
+    readiness_html = _readiness_badge_html(program)
 
     components_html = "".join(_component_card_html(c) for c in program.get("components", []))
 
@@ -795,21 +815,18 @@ def _render_main_program(program):
                 {image_html}
                 <span class="program-badge">{program['badge']}</span>
                 <span class="level-badge">{program.get('level', '')}</span>
+                {readiness_html}
                 <h2>{program['title']}</h2>
                 <div class="program-tagline">{program['benefit']}</div>
-                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Hedef Katılımcılar</strong>
-                        <ul class="audience-list">{audience_html}</ul>
-                    </div>
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Program Kapsamı</strong>
-                        <ul class="module-list">{scope_html}</ul>
-                    </div>
-                </div>
-                <div class="method-box"><strong>Uygulama Yöntemi:</strong> {program.get('method', '')}</div>
-                <div class="authority-badge"><strong>Beklenen Kurumsal Çıktı:</strong> {program.get('outcome', '')}</div>
+                {tbb_relevance_html}
+                {framing_html}
+                <strong>Mevcut İFE Programlarından Kapsam</strong>
+                <ul class="module-list">{scope_html}</ul>
+                <strong>TBB'nin İhtiyacına Göre Seçilebilecek Modüler Bileşenler</strong>
                 <div class="levels-strip">{levels_html}</div>
+                <strong>Hedef Katılımcılar</strong>
+                <ul class="audience-list">{audience_html}</ul>
+                <div class="authority-badge"><strong>Beklenen Kurumsal Katkı:</strong> {program.get('outcome', '')}</div>
                 {instructor_html}
                 {meta_html}
                 {pricing_html}
@@ -825,7 +842,7 @@ def _render_main_program(program):
 def _render_cert_group(group):
     cert_items_html = "".join(
         f"""<div class="cert-item">
-            <div class="cert-name">{c['name']}</div>
+            <div class="cert-name">{c['name']} {_readiness_badge_html(c)}</div>
             <div class="cert-use-case">{c['use_case']}</div>
             <div class="cert-career">{c['career']}</div>
         </div>"""
@@ -861,7 +878,7 @@ def _render_theme_group(group):
         programs_html += _html_block(
             f"""
             <div class="mini-program-card">
-                <div class="mini-program-title">{prog['title']}</div>
+                <div class="mini-program-title">{prog['title']} {_readiness_badge_html(prog)}</div>
                 <div class="mini-program-tagline">{prog['tagline']}</div>
                 <ul class="audience-list">{audience_html}</ul>
                 <div class="meta-row">
@@ -893,6 +910,7 @@ def _render_theme_group(group):
             f"""
             <div class="secondary-card">
                 <span class="secondary-badge">{group['badge']}</span>
+                {_readiness_badge_html(group)}
                 <h3>{group['title']}</h3>
                 <p class="secondary-intro">{group['intro']}</p>
                 <div class="theme-strip">{themes_html}</div>
@@ -1047,11 +1065,16 @@ def render_brochure():
             _render_theme_group(group)
 
     closing = BROCHURE["pilot_next_steps"]
+    steps_html = "".join(
+        f'<div class="level-pill"><span class="level-num">{i + 1}</span>{step}</div>'
+        for i, step in enumerate(closing.get("steps", []))
+    )
     st.markdown(
         _html_block(
             f"""
             <div class="closing-box">
                 <h3>{closing['title']}</h3>
+                <div class="levels-strip">{steps_html}</div>
                 <p>{closing['text']}</p>
             </div>
             """

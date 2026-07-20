@@ -588,10 +588,9 @@ BROCHURE = {
     "why_partnership": {
         "title": "Neden TBB – İFE İş Birliği?",
         "text": (
-            "İFE, TBB'nin mevcut eğitim faaliyetlerini tekrar eden bir "
-            "sağlayıcı olarak değil; seçili uzmanlık alanlarında içerik, "
-            "sertifikasyon, uygulama ve ölçme-değerlendirme bileşenlerini "
-            "birlikte geliştiren bir program ortağı olarak konumlanmaktadır."
+            "İFE, seçili uzmanlık alanlarında içerik, sertifikasyon, uygulama "
+            "ve ölçme-değerlendirme bileşenlerini TBB ile birlikte "
+            "yapılandıran bir program ortağıdır."
         ),
     },
     "partnership_model": {
@@ -619,11 +618,21 @@ BROCHURE = {
         {
             "id": "surdurulebilir_bankacilik",
             "badge": "Ana Program 1",
+            "readiness": "Mevcut İFE Programı",
             "title": "Sürdürülebilir Bankacılık, IFRS S1/S2 ve TSRS Uygulamaları",
             "benefit": (
                 "IFRS Foundation lisanslı içerikle ISSB S1/S2 standartlarını ve "
-                "TSRS raporlama yetkinliğini banka içi uygulamaya dönüştüren, "
-                "İFE'nin en güçlü farklılaştırıcı programı."
+                "TSRS raporlama yetkinliğini banka içi uygulamaya dönüştüren "
+                "bir program."
+            ),
+            "framing": (
+                "İFE'nin mevcut IFRS S1/S2, TSRS ve sürdürülebilirlik eğitim "
+                "portföyünün, TBB üyesi bankalara göre modüler biçimde "
+                "yapılandırılmış hâlidir."
+            ),
+            "tbb_relevance": (
+                "TBB üyesi bankaların yaklaşan TSRS raporlama yükümlülüğüne "
+                "sektör çapında hazırlıklı olması açısından önem taşır."
             ),
             "audience": [
                 "Finans ve Mali Kontrol Ekipleri",
@@ -689,6 +698,16 @@ BROCHURE = {
                 "Yerel MASAK mevzuatından uluslararası CAMS sertifikasyonuna "
                 "uzanan, kademeli bir uyum yetkinliği yolu."
             ),
+            "framing": (
+                "İFE'nin mevcut MASAK, AML/CFT, CAMS ve ICA programlarının "
+                "kademeli bir eğitim ve sertifikasyon yolu olarak "
+                "yapılandırılmış hâlidir."
+            ),
+            "tbb_relevance": (
+                "TBB üyesi bankaların hem yerel mevzuata hem uluslararası "
+                "standartlara uyumlu, sertifikasyona hazır bir uyum kadrosuna "
+                "sahip olması açısından önem taşır."
+            ),
             "audience": [
                 "Uyum Görevlileri ve Uyum Birimi Ekipleri",
                 "Risk Yönetimi ve İç Denetim Ekipleri",
@@ -727,6 +746,7 @@ BROCHURE = {
             "components": [
                 {
                     "name": "MASAK Uyum Görevlisi Yetkilendirme Sınavı Hazırlığı",
+                    "readiness": "Mevcut İFE Programı",
                     "instructor": {
                         "name": "Ali Ekber Polat",
                         "title": "Av., LL.M.",
@@ -754,6 +774,7 @@ BROCHURE = {
                 },
                 {
                     "name": "CAMS Sertifikasyon Hazırlığı",
+                    "readiness": "Mevcut İFE Programı",
                     "note": (
                         "Uluslararası finansal suçlarla mücadele alanında yaygın "
                         "biçimde tanınan CAMS sertifikasına hazırlık."
@@ -790,12 +811,13 @@ BROCHURE = {
         "title": "Uygulama ve Öğrenme Modeli",
         "text": (
             "Her iki ana program da yüz yüze eğitim, canlı sanal sınıf, vaka "
-            "çalışmaları ve ölçme-değerlendirme adımlarını bir araya getiren "
-            "kademeli bir yapıda kurgulanmıştır. Katılımcılar farkındalık "
-            "seviyesinden başlayıp uygulamalı modüller ve sertifikasyon "
-            "aşamalarına kademeli olarak ilerler; bu yapı TBB'nin mevcut çok "
-            "kanallı öğrenme altyapısına (yüz yüze, uzaktan, mikro-öğrenme) "
-            "doğrudan entegre edilebilir."
+            "çalışması ve ölçme-değerlendirmeyi bir araya getiren kademeli bir "
+            "yapıdadır; katılımcılar farkındalıktan başlayıp uygulama ve "
+            "sertifikasyona ilerler. Program kartlarında listelenen "
+            "bileşenler, TBB'nin ihtiyacına göre seçilebilecek modüler "
+            "uygulama adımlarıdır — tamamı zorunlu ya da bağımsız bir ürün "
+            "değildir. Bu yapı TBB'nin mevcut öğrenme altyapısına doğrudan "
+            "entegre edilebilir."
         ),
     },
     "second_phase": [
@@ -811,16 +833,19 @@ BROCHURE = {
             "certifications": [
                 {
                     "name": "CFA Programı",
+                    "readiness": "Mevcut İFE Programı",
                     "use_case": "Küresel ölçekte tanınan CFA Programı'na yönelik bağımsız hazırlık eğitimleri.",
                     "career": "Hazine, portföy yönetimi ve yatırım analistliği kariyer yolundaki profesyoneller için",
                 },
                 {
                     "name": "ICA Diploma",
+                    "readiness": "Mevcut İFE Programı",
                     "use_case": "Uyum ve risk yönetimi alanında uluslararası düzeyde tanınan bir diploma programına hazırlık.",
                     "career": "Uyum liderliğine ilerlemek isteyen uyum ve risk profesyonelleri için",
                 },
                 {
                     "name": "GCI (CCM)",
+                    "readiness": "Mevcut İFE Programı",
                     "use_case": "Türkçe sınav seçeneğiyle sunulan küresel uyum yönetimi sertifikasyonuna hazırlık.",
                     "career": "Uyum yöneticiliği kariyer basamağındaki profesyoneller için",
                 },
@@ -829,6 +854,7 @@ BROCHURE = {
         {
             "id": "musteri_guveni",
             "badge": "İkinci Faz Programı",
+            "readiness": "İkinci Faz Ortak Tasarım",
             "title": "Etik, Güven ve Müşteri Değeri Odaklı Bankacılık",
             "intro": (
                 "Klasik satış teknikleri yerine; müşteri ihtiyacına, şeffaflığa "
@@ -846,6 +872,7 @@ BROCHURE = {
             "programs": [
                 {
                     "id": "finans-disi",
+                    "readiness": "Mevcut İFE Programı",
                     "title": "Finans Dışı Yöneticiler için Finansal Okuryazarlık",
                     "tagline": "Finans dilini bilmeyen yöneticiler için temel okuryazarlık",
                     "audience": [
@@ -868,6 +895,7 @@ BROCHURE = {
                 },
                 {
                     "id": "satis-pazarlama-finans",
+                    "readiness": "Mevcut İFE Programı",
                     "title": "Müşteri İlişkileri ve Satış Yöneticileri için Finansal Sorumluluk Bilinci",
                     "tagline": "Satışın sadece ciro değil, nakit, risk ve sorumluluk yarattığı bilinci",
                     "audience": [
@@ -889,7 +917,7 @@ BROCHURE = {
                 },
             ],
             "bespoke": {
-                "status_label": "TBB'ye Özel Tasarlanacak",
+                "status_label": "TBB'ye Özel Yapılandırılacak",
                 "title": "Müşteri Güveni ve Etik Bankacılık İletişimi",
                 "note": (
                     "Bu program şu anda İFE kataloğunda yer almamaktadır. TBB'nin "
@@ -905,15 +933,20 @@ BROCHURE = {
     ],
     "pilot_next_steps": {
         "title": "Önerilen Pilot ve Sonraki Adımlar",
+        "steps": [
+            "Öncelikli program alanının seçilmesi",
+            "Hedef katılımcı grubunun belirlenmesi",
+            "Mevcut İFE içeriğinin TBB ihtiyaçlarına göre yapılandırılması",
+            "Pilot uygulama",
+            "Geri bildirim ve ölçme",
+            "Uygun görülmesi halinde ölçeklendirme",
+        ],
         "text": (
-            "İlk adım olarak, ana programlardan biri sınırlı bir katılımcı "
-            "grubuyla pilot olarak uygulanabilir; geri bildirimler "
-            "doğrultusunda kapsam ve içerik TBB Eğitim Merkezi ile birlikte "
-            "netleştirilir. Ekim–Kasım 2026 dönemi ve Swissotel The Bosphorus, "
-            "İFE'nin hâlihazırda düzenli olarak organize ettiği ve yeterli "
-            "katılımcı sayısının sağlanması durumunda hızla devreye "
-            "alabileceği bir takvim ve mekan önerisidir; kesin tarih ve "
-            "uygulama detayları bu pilot sürecine göre planlanır."
+            "Ekim–Kasım 2026 dönemi ve Swissotel The Bosphorus, İFE'nin "
+            "hâlihazırda düzenli olarak organize ettiği ve yeterli katılımcı "
+            "sayısının sağlanması durumunda hızla devreye alabileceği bir "
+            "takvim ve mekan önerisidir; kesin tarih TBB Eğitim Merkezi ile "
+            "birlikte planlanır."
         ),
     },
 }
