@@ -5,3 +5,4 @@ feedback_log.json
 __pycache__/
 *.pyc
 .venv/
+.streamlit/secrets.toml

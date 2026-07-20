@@ -122,15 +122,42 @@ view_mode = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 
+def _check_internal_password(pwd: str) -> bool:
+    try:
+        return bool(pwd) and pwd == st.secrets["internal_view_password"]
+    except Exception:
+        return False
+
+
 if view_mode == "🏢 İç Ekip Görünümü":
-    nav_labels = ["🏠 Ana Sayfa"] + [
-        f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
-    ] + ["📝 Değerlendirme ve Notlar"]
+    if "internal_unlocked" not in st.session_state:
+        st.session_state.internal_unlocked = False
 
-    nav_keys = ["home"] + SECTION_ORDER + ["feedback"]
+    if not st.session_state.internal_unlocked:
+        st.sidebar.markdown("### 🔒 İç Ekip Girişi")
+        internal_pwd = st.sidebar.text_input(
+            "Parola", type="password", key="internal_pwd_input", label_visibility="collapsed",
+            placeholder="Parola",
+        )
+        if st.sidebar.button("Giriş"):
+            if _check_internal_password(internal_pwd):
+                st.session_state.internal_unlocked = True
+                st.rerun()
+            else:
+                st.sidebar.error("Parola hatalı.")
+    else:
+        nav_labels = ["🏠 Ana Sayfa"] + [
+            f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
+        ] + ["📝 Değerlendirme ve Notlar"]
 
-    selected_label = st.sidebar.radio("Bölüm seçin", nav_labels, label_visibility="collapsed")
-    selected_key = nav_keys[nav_labels.index(selected_label)]
+        nav_keys = ["home"] + SECTION_ORDER + ["feedback"]
+
+        selected_label = st.sidebar.radio("Bölüm seçin", nav_labels, label_visibility="collapsed")
+        selected_key = nav_keys[nav_labels.index(selected_label)]
+
+        if st.sidebar.button("🔒 Kilitle"):
+            st.session_state.internal_unlocked = False
+            st.rerun()
 
 # --------------------------------------------------------------------------
 # ÜST BAŞLIK
@@ -1132,7 +1159,9 @@ def render_feedback():
 if view_mode == "📄 TBB Sunum (Broşür)":
     render_brochure()
 else:
-    if selected_key == "home":
+    if not st.session_state.get("internal_unlocked"):
+        st.info("🔒 Bu görünüm parola korumalıdır. Soldaki menüden parolayı girin.")
+    elif selected_key == "home":
         render_home()
     elif selected_key == "feedback":
         render_feedback()
