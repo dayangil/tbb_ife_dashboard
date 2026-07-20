@@ -532,7 +532,7 @@ BROCHURE = {
     "event_info": {
         "title": "TBB – İFE Stratejik Eğitim İş Birliği",
         "tagline": (
-            "Katalog değil, yetkinlik mimarisi. Eğitim sağlayıcılığı değil, "
+            "Katalog değil, yetkinlik mimarisi. Eğitim tedariki değil, "
             "uzmanlık ve program geliştirme ortaklığı."
         ),
         "opening_statement": (
@@ -545,25 +545,36 @@ BROCHURE = {
             "geliştirmeyi amaçlamaktadır."
         ),
         "ifrs_partnership": (
-            "İFE İstanbul Finans Enstitüsü, IFRS Foundation tarafından Nisan 2026 "
-            "itibarıyla \"IFRS Sürdürülebilirlik Eğitiminde Resmi Lisanslı Ortak\" "
-            "olarak atanmıştır — ISSB S1/S2 standartları kapsamında IFRS Foundation "
-            "kaynaklı içerikle eğitim, sertifikasyon ve yayın yetkisine sahip "
-            "kurumlardan biridir."
+            "İFE İstanbul Finans Enstitüsü, Nisan 2026 itibarıyla IFRS "
+            "Foundation'ın IFRS S1 ve IFRS S2 standartları kapsamında lisanslı "
+            "eğitim ortağı olmuştur."
         ),
         "positioning": (
-            "IFRS Foundation'ın Türkiye'deki resmi lisanslı eğitim ortağı İFE "
-            "İstanbul Finans Enstitüsü; TBB'nin mevcut eğitim kapasitesini tekrar "
-            "eden bir sağlayıcı değil, resmi lisanslı içerik, uluslararası "
-            "sertifikasyon yolları, bankacılığa özgü uygulama modülleri ve "
-            "ölçülebilir öğrenme programları sunan bir uzmanlık ve program "
-            "geliştirme ortağıdır."
+            "İFE İstanbul Finans Enstitüsü, IFRS Foundation'ın Türkiye'deki "
+            "lisanslı eğitim ortağı olarak; sürdürülebilirlik raporlaması, "
+            "düzenleyici uyum, uluslararası mesleki yetkinlik ve uygulama "
+            "odaklı program geliştirme alanlarında TBB ile uzun vadeli bir "
+            "uzmanlık ortaklığı kurmayı hedeflemektedir."
         ),
-        "credentials_line": (
-            "169 IFRS Yargı Bölgesi · 37+ ISSB Benimseyen Ülke · Türkiye'de 300+ TSRS "
-            "Zorunlu Şirket · IFRS Sustainability Alliance Üyesi (400+ Küresel Kuruluş) · "
-            "EBTN Üyesi · 15+ Yıl Deneyim · 500+ Kurumsal Müşteri"
-        ),
+        "credentials_groups": [
+            {
+                "label": "Küresel Ekosistem",
+                "items": [
+                    "169 IFRS Yargı Bölgesi",
+                    "37+ ISSB Benimseyen Ülke",
+                    "Türkiye'de 300+ TSRS Kapsamındaki Şirket",
+                ],
+            },
+            {
+                "label": "İFE Kurumsal Kapasitesi",
+                "items": [
+                    "IFRS Sustainability Alliance Üyesi",
+                    "EBTN Üyesi",
+                    "15+ Yıl Deneyim",
+                    "500+ Kurumsal Müşteri",
+                ],
+            },
+        ],
     },
     "tbb_strength": {
         "title": "TBB'nin Mevcut Gücü",
@@ -577,11 +588,10 @@ BROCHURE = {
     "why_partnership": {
         "title": "Neden TBB – İFE İş Birliği?",
         "text": (
-            "İFE, bu güçlü altyapıyı yeni bir genel eğitim kataloğuyla "
-            "çoğaltmayı değil; seçili uzmanlık alanlarında resmi lisanslı "
-            "içerik, uluslararası sertifikasyon yolları ve bankacılığa özgü "
-            "uygulama modülleriyle TBB'nin program geliştirme kapasitesini "
-            "güçlendirmeyi hedefler."
+            "İFE, TBB'nin mevcut eğitim faaliyetlerini tekrar eden bir "
+            "sağlayıcı olarak değil; seçili uzmanlık alanlarında içerik, "
+            "sertifikasyon, uygulama ve ölçme-değerlendirme bileşenlerini "
+            "birlikte geliştiren bir program ortağı olarak konumlanmaktadır."
         ),
     },
     "partnership_model": {
@@ -601,7 +611,7 @@ BROCHURE = {
             },
             {
                 "label": "Ortak Çıktı",
-                "text": "TBB'nin sektörel hedeflerine göre yapılandırılmış yetkinlik programları",
+                "text": "TBB'nin sektörel hedefleri ve üye bankaların görev bazlı ihtiyaçlarına göre yapılandırılmış, ölçülebilir yetkinlik programları",
             },
         ],
     },

@@ -909,6 +909,11 @@ def render_brochure():
     render_brochure_styles()
 
     event = BROCHURE["event_info"]
+    credentials_html = "".join(
+        f'<p style="font-size:0.82rem; opacity:0.85;"><strong>{g["label"]}:</strong> '
+        f'{" · ".join(g["items"])}</p>'
+        for g in event["credentials_groups"]
+    )
     st.markdown(
         _html_block(
             f"""
@@ -922,7 +927,7 @@ def render_brochure():
                 <p class="event-tagline">{event['tagline']}</p>
                 <p>{event['opening_statement']}</p>
                 <p>{event['positioning']}</p>
-                <p style="font-size:0.82rem; opacity:0.85;">{event['credentials_line']}</p>
+                {credentials_html}
             </div>
             """
         ),
