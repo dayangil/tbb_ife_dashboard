@@ -477,9 +477,12 @@ SECTIONS = {
                     "paket indirimi önerilebilir mi? Bu konuda İFE finans ekibiyle "
                     "netleştirilmesi gereken bir esneklik payı var — toplantıda "
                     "rakam verilmeden önce onay alınmalı.\n\n"
-                    "Satış Teknikleri (planlanan/bespoke) için: eğer TBB ilgi "
-                    "gösterirse, 'kapsamlı bir teklif hazırlayıp size döneriz' "
-                    "denilmeli — anında fiyat verilmemeli."
+                    "Not (TBB Broşür ile çelişmesin diye): TBB'ye gösterilen broşürde "
+                    "bu bundle artık 'Müşteri Güveni ve Ticari Yetkinlik' stratejik "
+                    "sütunu altında, etik/güven odaklı bir çerçevede sunuluyor. "
+                    "Klasik satış teknikleri (ikna, itiraz yönetimi, kapanış "
+                    "stratejileri) fikri sadece burada, iç ekip pazarlık notu olarak "
+                    "kalmalı — broşürde bu dille bahsedilmemeli."
                 ),
             },
             "5": {
@@ -509,93 +512,166 @@ SECTION_ORDER = [
 ]
 
 # ==============================================================================
-# TBB DELIVERY — Resmi Broşür (Dış Sunum, Sadece 3 One-Shot Eğitim)
+# TBB DELIVERY — Resmi Broşür (Dış Sunum: TBB Sunum/Broşür görünümü)
+# ------------------------------------------------------------------------------
+# Anlatı çerçevesi: "TBB'nin sektörel eğitim kapasitesini uzmanlık programlarıyla
+# güçlendiren stratejik iş birliği." İFE'nin TBB'ye eğitim sattığı bir katalog
+# değil — dört stratejik sütun (pillars) altında, TBB'nin mevcut vizyonunu
+# somut yetkinliğe çeviren bir uygulama ortaklığı olarak kurgulanmıştır.
+#
+# Her program bir "pillar_id" ile bir sütuna bağlanır; bir sütun birden fazla
+# program içerebilir (bkz. "musteri_guveni"). Satış/pazarlama taktik dili
+# (ikna, itiraz yönetimi, kapanış stratejileri vb.) burada YER ALMAZ — o dil
+# yalnızca SECTIONS içindeki "flash_sale_pitch_strategy" (İç Ekip Görünümü)
+# altında kalır.
 # ==============================================================================
 BROCHURE = {
     "event_info": {
-        "title": "TBB Üye Bankalar İçin Özel Eğitim Programı",
-        "subtitle": "Ekim – Kasım 2026 · Swissotel The Bosphorus, İstanbul",
-        "partner_line": (
-            "İFE İstanbul Finans Enstitüsü — EBTN Üyesi · ACAMS Yetkili Hazırlık Merkezi · "
-            "IFRS Sustainability Alliance Türkiye Üyesi · 15+ Yıl Deneyim · 500+ Kurumsal Müşteri"
+        "title": "TBB – İFE Stratejik Eğitim İş Birliği",
+        "opening_statement": (
+            "İFE, TBB ile uzun vadeli bir paydaşlık kurmayı; ihtiyaç duyulan "
+            "alanlarda somut çözümler ve sürdürülebilir eğitim kapasitesi "
+            "desteğiyle bu birlikteliği kalıcı kılmayı hedefler."
+        ),
+        "ifrs_partnership": (
+            "İFE İstanbul Finans Enstitüsü, IFRS Foundation tarafından Nisan 2026 "
+            "itibarıyla \"IFRS Sürdürülebilirlik Eğitiminde Resmi Lisanslı Ortak\" "
+            "olarak atanmıştır — ISSB S1/S2 standartları kapsamında IFRS Foundation "
+            "kaynaklı içerikle eğitim, sertifikasyon ve yayın yetkisine sahip "
+            "kurumlardan biridir."
+        ),
+        "positioning": (
+            "IFRS Foundation'ın Türkiye'deki resmi lisanslı eğitim ortağı İFE "
+            "İstanbul Finans Enstitüsü, TBB'nin sektörel eğitim ve dağıtım "
+            "kapasitesini; düzenleyici uyum, sürdürülebilirlik, uluslararası "
+            "sertifikasyon ve müşteri odaklı bankacılık alanlarında uzmanlık "
+            "içeriği ve uygulama desteğiyle tamamlayan bir ortaktır."
+        ),
+        "credentials_line": (
+            "169 IFRS Yargı Bölgesi · 37+ ISSB Benimseyen Ülke · Türkiye'de 300+ TSRS "
+            "Zorunlu Şirket · IFRS Sustainability Alliance Üyesi (400+ Küresel Kuruluş) · "
+            "EBTN Üyesi · 15+ Yıl Deneyim · 500+ Kurumsal Müşteri"
         ),
     },
-    "programs": [
+    "accreditations": [
         {
-            "id": "surdurulebilirlik",
-            "badge": "Program 1",
-            "title": "Sürdürülebilirlik Raporlama ve İklim Riskleri",
-            "tagline": "TSRS uyumu artık ertelenemez bir mevzuat zorunluluğu",
-            "summary": (
-                "Sürdürülebilirlik düzenlemeleri, ESG raporlama standartları (GRI, TCFD), "
-                "karbon piyasaları ve iklim risk analizi konularında uzmanlık kazandırılır. "
-                "Kurum içi ESG entegrasyonu ve uyum süreçleri programın merkezinde yer alır."
-            ),
-            "modules": [
-                "Sürdürülebilirlik Düzenlemeleri ve TSRS Çerçevesi",
-                "ESG Raporlama Standartları (GRI, TCFD)",
-                "Karbon Piyasaları ve Emisyon Yönetimi",
-                "İklim Risk Analizi ve Senaryo Çalışmaları",
-                "Kurum İçi ESG Entegrasyonu ve Uyum Süreçleri",
-            ],
-            "audience": [
-                "Sürdürülebilirlik ve ESG Birimi Çalışanları",
-                "Kredi ve Risk Yönetimi Ekipleri",
-                "Finansal Raporlama ve Muhasebe Uzmanları",
-                "Yatırımcı İlişkileri Profesyonelleri",
-                "İç Denetim ve Uyum Ekipleri",
-            ],
-            "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf Seçeneği",
-            "duration": "Önerilen Süre: 2 Gün",
-            "authority": "IFRS Sustainability Alliance Türkiye üyeliği kapsamında hazırlanmıştır.",
-            "instructor": {
-                "name": "Hasan Sarıçiçek",
-                "title": "Dr.",
-                "linkedin": "https://ife.com.tr/tr/instructors/hasan-saricicek",
-                "bio": (
-                    "İklim teknolojileri ve enerji dönüşümü yatırımları alanında 20 yılı aşkın "
-                    "deneyim sahibi. Türkiye, Avrupa ve ABD'de sermaye tahsisi, M&A ve "
-                    "yapılandırılmış finansman süreçlerinde aktif rol almaktadır. Hâlen Naturel "
-                    "Holding bünyesinde İklim Teknolojileri ve E-Mobilite yatırımlarından "
-                    "sorumlu direktör."
-                ),
-                "expertise": ["Sürdürülebilir Finans ve ESG", "İklim Teknolojileri ve E-Mobilite"],
-            },
-            "level": "Orta",
-            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_Chat_GPT_Image_Nov_6_2025_01_32_18_AM_751819e6e4.png",
-            "price_options": [
-                {"label": "Fiyat Bilgisi", "price": "Kurumsal teklif ile netleştirilecek", "duration": ""},
-            ],
+            "name": "CFA",
+            "full_name": "Chartered Financial Analyst",
+            "tag": "Level I · II · III Hazırlık · 190+ Ülkede Geçerli",
         },
         {
-            "id": "masak",
-            "badge": "Program 2",
-            "title": "MASAK Uyum Görevlisi Yetkilendirme Sınavı Hazırlık Eğitimi",
-            "tagline": "Zorunlu, geniş katılımlı, tek oturumda yüksek hacimli katılım potansiyeli",
-            "summary": (
-                "5549 sayılı Kanun, Terörizmin Finansmanı yükümlülükleri ve uyum programı "
-                "mevzuatı çerçevesinde MASAK Uyum Görevlisi Yetkilendirme Sınavı'na yönelik "
-                "kapsamlı hazırlık programı. Teorik anlatım, yoğun soru çözüm pratiği ve "
-                "vaka çalışmalarıyla desteklenir."
+            "name": "CAMS",
+            "full_name": "Certified Anti-Money Laundering Specialist",
+            "tag": "Dünyanın 1 Numaralı AML Sertifikası · MASAK Uyumlu",
+        },
+        {
+            "name": "ICA",
+            "full_name": "International Compliance Association Diploma",
+            "tag": "150+ Ülkede Tanınan Diploma",
+        },
+        {
+            "name": "GCI (CCM)",
+            "full_name": "Global Compliance Institute — Certified Compliance Manager",
+            "tag": "Türkçe Sınav Seçeneği Mevcut",
+        },
+        {
+            "name": "IFRS Sustainability",
+            "full_name": "IFRS Sustainability Alliance Üyeliği",
+            "tag": "ISSB S1 / S2 Standartlarında Lisanslı İçerik ve Sertifikasyon Yetkisi",
+        },
+    ],
+    "bridge_intro": (
+        "TBB, yüz yüze eğitim, uzaktan öğrenme, mikro-öğrenme ve Finans ve "
+        "Bankacılık Eğitim Portalı ile üye bankalara geniş kapsamlı bir eğitim "
+        "altyapısı sunmaktadır. İFE bu altyapıyı yeni bir katalogla çoğaltmak "
+        "yerine, dört uzmanlık alanında derinlemesine içerik ve uygulama "
+        "desteğiyle tamamlar:"
+    ),
+    "pillars": [
+        {
+            "id": "duzenleyici_uyum",
+            "label": "1",
+            "name": "Düzenleyici Uyum ve Risk Kapasitesi",
+            "rationale": (
+                "Mevzuat bilgisinin günlük bankacılık işlemlerine, müşteri "
+                "kabulüne, şüpheli işlem değerlendirmesine ve kurum içi kontrol "
+                "davranışına aktarılması."
             ),
+        },
+        {
+            "id": "surdurulebilir_bankacilik",
+            "label": "2",
+            "name": "Sürdürülebilir Bankacılık ve Raporlama",
+            "rationale": (
+                "TBB'nin sürdürülebilir ve sorumlu bankacılık vizyonunun "
+                "uygulama ve raporlama yetkinliğine dönüştürülmesi."
+            ),
+        },
+        {
+            "id": "uluslararasi_yetkinlik",
+            "label": "3",
+            "name": "Uluslararası Mesleki Yetkinlik",
+            "rationale": (
+                "Üye bankaların uluslararası AML standartlarıyla uyumlu uzman "
+                "insan kaynağı ve sertifikasyon kapasitesinin geliştirilmesi."
+            ),
+        },
+        {
+            "id": "musteri_guveni",
+            "label": "4",
+            "name": "Müşteri Güveni ve Ticari Yetkinlik",
+            "rationale": (
+                "Klasik satış teknikleri yerine; etik, şeffaf, müşteri "
+                "ihtiyacına ve uzun vadeli güvene dayalı bankacılık "
+                "yaklaşımının güçlendirilmesi."
+            ),
+        },
+    ],
+    "programs": [
+        {
+            "id": "masak",
+            "pillar_id": "duzenleyici_uyum",
+            "title": "MASAK Uyum Görevlisi Yetkilendirme Sınavı Hazırlık Eğitimi",
+            "tagline": (
+                "Mevzuat bilgisini şube ve merkez ekiplerinin günlük karar "
+                "davranışına dönüştüren kapsamlı hazırlık programı"
+            ),
+            "summary": (
+                "5549 sayılı Kanun, Terörizmin Finansmanı yükümlülükleri ve uyum "
+                "programı mevzuatı çerçevesinde MASAK Uyum Görevlisi "
+                "Yetkilendirme Sınavı'na yönelik kapsamlı hazırlık programı. "
+                "Teorik anlatım, yoğun soru çözüm pratiği ve vaka çalışmalarıyla "
+                "desteklenir."
+            ),
+            "outcomes": [
+                "Şüpheli işlem değerlendirmesinde özgüvenli karar verme",
+                "Müşteri kabul süreçlerinde risk bazlı yaklaşım uygulama",
+                "Yetkilendirme sınavına somut ve ölçülebilir hazırlık",
+            ],
             "modules": [
                 "Modül 1 — Hukuki Çerçeve ve AML/CFT Temel Kavramlar",
-                "MASAK ve Uyum Mevzuatı, 5549 Sayılı Kanun",
+                "MASAK ve Uyum Mevzuatı, Suç Gelirlerinin Aklanması (5549 Sayılı Kanun)",
                 "Terörizmin Finansmanı ve Malvarlığının Dondurulması",
+                "Kitle İmha Silahlarının Finansmanı",
+                "Temel Hukuki Kavramlar ve Sınav Soru Çözümü",
                 "Modül 2 — Uyum Yönetimi, KYC ve Uygulama Pratikleri",
-                "Risk Bazlı Yaklaşım, Müşterini Tanı (KYC)",
-                "Şüpheli İşlem Bildirimi (ŞİB), Deneme Testleri ve Vaka Analizleri",
+                "Uyum Programı ve Risk Bazlı Yaklaşım",
+                "Müşterini Tanı (KYC) ve Müşteri Risk Değerlendirmesi",
+                "Şüpheli İşlem Bildirimi (ŞİB)",
+                "Sınav Formatına Uygun Soru Çözüm Teknikleri, Deneme Testleri ve Vaka Analizleri",
             ],
             "audience": [
-                "Uyum Görevlisi Adayları",
-                "AML / CFT Uyum Uzmanları",
-                "İç Denetim ve İç Kontrol Uzmanları",
-                "Şube Yöneticileri ve Operasyon Ekipleri",
+                "Uyum Görevlisi Adayı",
+                "AML / CFT Uyum Uzmanı",
+                "İç Denetim ve İç Kontrol Uzmanı",
+                "Finansal Suçlarla Mücadele Uzmanı",
                 "Avukatlar ve Mali Müşavirler",
+                "Regülasyon & Uyumluluk Danışmanı",
             ],
             "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf (Zoom)",
             "duration": "2 Gün (Toplam 12 Saat)",
             "authority": "SPL (Sermaye Piyasası Lisanslama Sicil ve Eğitim Kuruluşu) sınav formatına tam uyumlu içerik.",
+            "source_url": "https://www.ife.com.tr/tr/courses/masak-egitimi-uyum-gorevlisi-yetkilendirme-sinavi-hazirlik-egitimi",
             "instructor": {
                 "name": "Ali Ekber Polat",
                 "title": "Av., LL.M.",
@@ -619,34 +695,103 @@ BROCHURE = {
             ],
         },
         {
-            "id": "cams",
-            "badge": "Program 3",
-            "title": "CAMS — Certified Anti-Money Laundering Specialist",
-            "tagline": "Dünyanın 1 numaralı AML sertifikası — 100+ ülkede geçerli",
-            "summary": (
-                "ACAMS tarafından verilen, kara para aklama ve terörün finansmanıyla mücadele "
-                "alanındaki en prestijli uluslararası sertifika. İFE, MASAK düzenlemelerini "
-                "uluslararası ACAMS içerikleriyle harmanlayan Türkiye'nin en kapsamlı CAMS "
-                "hazırlık programını sunar."
+            "id": "surdurulebilirlik",
+            "pillar_id": "surdurulebilir_bankacilik",
+            "title": "Sürdürülebilirlik Raporlama ve İklim Riskleri",
+            "tagline": (
+                "TBB'nin sürdürülebilir bankacılık vizyonunu uygulanabilir "
+                "raporlama yetkinliğine dönüştüren program"
             ),
+            "summary": (
+                "Sürdürülebilirlik düzenlemeleri, ESG raporlama standartları (GRI, TCFD), "
+                "karbon piyasaları ve iklim risk analizi konularında uzmanlık kazandırılır. "
+                "Kurum içi ESG entegrasyonu ve uyum süreçleri programın merkezinde yer alır."
+            ),
+            "outcomes": [
+                "TSRS çerçevesine ve ESG raporlama standartlarına hakimiyet",
+                "Kurum içi ESG entegrasyonunda uygulama kapasitesi",
+                "İklim risk senaryolarını kredi ve yatırım kararlarına yansıtabilme",
+            ],
             "modules": [
-                "Alan 1-2 — Riskler, Yöntemler ve Uyum Standartları",
-                "Kara Para Aklama ve Terörün Finansmanı Yöntemleri",
-                "Uluslararası Standartlar (FATF, Basel, Wolfsberg)",
-                "Alan 3-4 — Uyum Programları ve Soruşturma Süreci",
-                "Müşteri Durum Tespiti (CDD/KYC), Yaptırım Taraması",
-                "Şüpheli İşlem Bildirimi (STR/SAR)",
+                "Sürdürülebilirlik Düzenlemeleri ve TSRS Çerçevesi",
+                "ESG Raporlama Standartları (GRI, TCFD)",
+                "Karbon Piyasaları ve Emisyon Yönetimi",
+                "İklim Risk Analizi ve Senaryo Çalışmaları",
+                "Kurum İçi ESG Entegrasyonu ve Uyum Süreçleri",
             ],
             "audience": [
-                "Uyum Direktörleri ve Uyum Birimi Yöneticileri",
-                "AML Uzmanları ve Finansal Suç Analistleri",
-                "KYC Analistleri",
-                "Risk ve İç Denetim Yöneticileri",
-                "Bireysel Kariyer Gelişimi Hedefleyen Bankacılık Profesyonelleri",
+                "Sürdürülebilirlik ve ESG Birimi Çalışanları",
+                "Kredi ve Risk Yönetimi Ekipleri",
+                "Finansal Raporlama ve Muhasebe Uzmanları",
+                "Yatırımcı İlişkileri Profesyonelleri",
+                "İç Denetim ve Uyum Ekipleri",
             ],
-            "format": "6 Oturum x 2 Saat + ACAMS Canlı Dersler, Soru Bankası, Mock Sınav",
-            "duration": "Sınav: 3,5 Saat / 120 Soru (Pearson VUE Test Merkezleri)",
-            "authority": "ACAMS Yetkili Hazırlık Merkezi — %80 sınav geçme oranı.",
+            "format": "Sınıf İçi (Swissotel The Bosphorus) + Canlı Sanal Sınıf Seçeneği",
+            "duration": "Önerilen Süre: 2 Gün",
+            "authority": "IFRS Sustainability Alliance Türkiye üyeliği kapsamında hazırlanmıştır.",
+            "source_url": "https://www.ife.com.tr/tr/courses/surdurulebilirlik-raporlama-ve-iklim-riskleri",
+            "instructor": {
+                "name": "Hasan Sarıçiçek",
+                "title": "Dr.",
+                "linkedin": "https://ife.com.tr/tr/instructors/hasan-saricicek",
+                "bio": (
+                    "İklim teknolojileri ve enerji dönüşümü yatırımları alanında 20 yılı aşkın "
+                    "deneyim sahibi. Türkiye, Avrupa ve ABD'de sermaye tahsisi, M&A ve "
+                    "yapılandırılmış finansman süreçlerinde aktif rol almaktadır. Hâlen Naturel "
+                    "Holding bünyesinde İklim Teknolojileri ve E-Mobilite yatırımlarından "
+                    "sorumlu direktör."
+                ),
+                "expertise": ["Sürdürülebilir Finans ve ESG", "İklim Teknolojileri ve E-Mobilite"],
+            },
+            "level": "Orta",
+            "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_Chat_GPT_Image_Nov_6_2025_01_32_18_AM_751819e6e4.png",
+            "price_options": [],
+            "price_note": "Teklif Üzerine",
+        },
+        {
+            "id": "cams",
+            "pillar_id": "uluslararasi_yetkinlik",
+            "title": "CAMS — Certified Anti-Money Laundering Specialist",
+            "tagline": (
+                "Üye bankaların uluslararası standartlarda uzman insan kaynağı "
+                "geliştirmesini sağlayan küresel sertifikasyon"
+            ),
+            "summary": (
+                "ACAMS tarafından verilen, kara para aklama ve terörün finansmanıyla "
+                "mücadele alanındaki en prestijli uluslararası sertifika. Program, "
+                "üye bankaların uluslararası AML standartlarıyla uyumlu uzman "
+                "kapasitesini ve sertifikasyon oranını yükseltmeyi hedefler."
+            ),
+            "outcomes": [
+                "100+ ülkede geçerli uluslararası sertifikasyon",
+                "FATF, Basel ve Wolfsberg standartlarına hakimiyet",
+                "2 tam mock sınav simülasyonuyla sınava somut hazırlık",
+            ],
+            "modules": [
+                "Modül 0 — Sınav Genel Bakış ve Strateji",
+                "Modül 1A — Domain I-A: ML/TF Tanımları ve Aşamaları",
+                "Modül 1B — Domain I-B: Modern Aklama Yöntemleri ve Risk Kategorileri",
+                "Modül 2A — FATF Sistemi ve 40 Tavsiye",
+                "Modül 2B — Diğer Uluslararası Aktörler (Basel, Wolfsberg)",
+                "Modül 2C — Bölgesel Mevzuatlar",
+                "Modül 3A — AML Programının Beş Sütunu ve Risk Değerlendirmesi",
+                "Modül 3B — CDD, SDD, EDD ve KYC Mimarisi",
+                "Modül 3C — Raporlama, Monitoring ve Sanctions (STR/SAR)",
+                "Modül 4A — İç Soruşturma Süreci",
+                "Modül 4B — Kolluk ve Adli Süreçlerle Etkileşim",
+            ],
+            "audience": [
+                "Banka Compliance Analisti → AML Officer → MLRO → Chief Compliance Officer (CCO)",
+                "KYC/CDD Uzmanı → Senior CDD Analyst → FIU Lead → Head of Financial Crime",
+                "Sanctions Screening Uzmanı → Sanctions Manager → Head of Sanctions",
+                "Kripto Borsası Compliance Lead → Travel Rule & Sanctions Lead → VASP MLRO",
+                "Denetim ve Danışmanlık Uzmanı → Manager → Director of Financial Crime Advisory",
+                "Hukuk Bürosu AML Avukatı → Senior Compliance Counsel → Partner",
+            ],
+            "format": "Sınıf İçi (Swissotel) veya Canlı Sanal Sınıf — 2 Tam Gün (09:30–16:30), 12-15 Kişilik Sınıf, 2 Mock Sınav Simülasyonu",
+            "duration": "Sınav: 3,5 Saat / 120 Soru · Geçme Barajı %62,5 (Pearson VUE Test Merkezleri)",
+            "authority": "ACAMS Yetkili Hazırlık Merkezi — sertifika 3 yıl geçerli, yenileme için 60 saat CE puanı gerekir.",
+            "source_url": "https://www.ife.com.tr/tr/courses/cams-sertifikali-aml-uzmani-sinav-hazirlik",
             "instructor": {
                 "name": "Alpaslan Çakır",
                 "title": "CAMS",
@@ -665,48 +810,14 @@ BROCHURE = {
             "level": "İleri",
             "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_ACAMS_Banner_full_good_aedb330910.jpg",
             "price_options": [
-                {"label": "Sınıf İçi (Swissotel)", "price": "₺39.800", "duration": "2 Gün"},
+                {"label": "Sınıf İçi (Swissotel)", "price": "₺43.800", "duration": "2 Gün"},
                 {"label": "Canlı Sanal Sınıf", "price": "₺29.800", "duration": "2 Gün"},
             ],
         },
-    ],
-    "closing": {
-        "title": "Swissotel The Bosphorus — Ekim / Kasım 2026 Teklif Paketi",
-        "text": (
-            "Üç program, TBB Eğitim Merkezi takvimine entegre şekilde, ardışık günlerde ya da "
-            "modüler bir seri olarak planlanabilir. Kurumsal katılım modelleriyle TBB'ye "
-            "ek maliyetsiz gelir imkanı sunulmaktadır."
-        ),
-    },
-}
-
-# ==============================================================================
-# LOGO (Satış odaklı TBB broşürlerinde kullanılacak)
-# ==============================================================================
-IFE_LOGO_WHITE = "https://ife.com.tr/_next/image?url=%2Fife-logo-white.webp&w=384&q=75"
-IFE_LOGO_COLOR = "https://ife.com.tr/_next/image?url=%2Fife-full-logo.png&w=750&q=75"
-
-# ==============================================================================
-# FLASH SALE — Satış & Pazarlama Ekipleri Bundle (AYRI KATEGORİ, ana broşürden bağımsız)
-# ==============================================================================
-FLASH_SALE = {
-    "event_info": {
-        "title": "Ek Fırsat: Satış ve Pazarlama Ekipleri için Finansal Yetkinlik Programı",
-        "subtitle": "TBB Üye Bankalarının Satış & Pazarlama Organizasyonuna Özel Tamamlayıcı Program",
-        "partner_line": "İstanbul Finans Enstitüsü (İFE) — Kurumsal Eğitim Çözümleri",
-    },
-    "section_intro": (
-        "Ana programın tamamlayıcısı olarak, bankanın Satış ve Pazarlama ekibinin "
-        "tamamına yönelik hızlı entegre edilebilir bir eğitim paketi. Tek bir yönetici "
-        "yerine ekibin tamamının aynı eğitimden geçmesi, ortak bir finansal dil ve "
-        "karar standardı yaratarak eğitimin kurumsal etkisini kalıcı hale getirir. "
-        "Ekim–Kasım Swissotel programına ek modül olarak entegre edilebilir."
-    ),
-    "courses": [
         {
             "id": "finans-disi",
-            "badge": "Ek Program 1",
-            "title": "Finans Dışı Çalışanlar için Temel Finans",
+            "pillar_id": "musteri_guveni",
+            "title": "Finans Dışı Yöneticiler için Finansal Okuryazarlık",
             "tagline": "Finans dilini bilmeyen yöneticiler için temel okuryazarlık",
             "summary": (
                 "Finansçı olmayan yöneticilerin şirketin finansal yapısını doğru "
@@ -714,6 +825,11 @@ FLASH_SALE = {
                 "değerlendirebilmesini sağlar. Finans jargonundan arındırılmış, "
                 "iş hayatından örneklerle desteklenen bir anlatım kullanılır."
             ),
+            "outcomes": [
+                "Finansal tabloları doğru okuyup yorumlayabilme",
+                "Günlük iş kararlarını finansal bakış açısıyla değerlendirme",
+                "Finans ekipleriyle ortak bir dil kurma",
+            ],
             "modules": [
                 "Finansın İş Dünyasındaki Rolü",
                 "Temel Finansal Kavramlar (Gelir, Gider, Kâr, Nakit, Maliyet)",
@@ -729,6 +845,9 @@ FLASH_SALE = {
             ],
             "format": "Sınıf İçi (Swissotel) / Canlı Sanal Sınıf / Kendi Hızında Online",
             "duration": "1 Gün",
+            "authority": None,
+            "source_url": "https://www.ife.com.tr/tr/courses/finans-disi-calisanlar-icin-temel-finans",
+            "instructor": None,
             "level": "Başlangıç",
             "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_web_resim_238f9ca8ff.jpg",
             "price_options": [
@@ -736,22 +855,11 @@ FLASH_SALE = {
                 {"label": "Canlı Sanal Sınıf", "price": "₺18.900", "duration": "1 Gün"},
                 {"label": "Kendi Hızında (Online)", "price": "₺6.900", "duration": "Kayıt İzleme"},
             ],
-            "instructor": {
-                "name": "İFE Kurumsal Eğitim Ekibi",
-                "title": "Eğitmen Ataması İFE ile Netleştirilecek",
-                "linkedin": None,
-                "bio": (
-                    "Bu program için eğitmen ataması, TBB'nin katılımcı profiline göre "
-                    "İFE tarafından yapılacaktır. Kurumsal grup eğitimlerinde İFE, en "
-                    "uygun eğitmeni ekiple birlikte belirler."
-                ),
-                "expertise": [],
-            },
         },
         {
             "id": "satis-pazarlama-finans",
-            "badge": "Ek Program 2",
-            "title": "Satış ve Pazarlama Yöneticileri için Finans",
+            "pillar_id": "musteri_guveni",
+            "title": "Müşteri İlişkileri ve Satış Yöneticileri için Finansal Sorumluluk Bilinci",
             "tagline": "Satışın sadece ciro değil, nakit, risk ve sorumluluk yarattığı bilinci",
             "summary": (
                 "Satış ve pazarlama yöneticilerinin finansal tabloları anlamasını, "
@@ -759,6 +867,11 @@ FLASH_SALE = {
                 "riskleri doğru yönetmesini sağlar. Belge düzeni, teslimin ispatı, "
                 "ödeme araçları ve tahsilat riskleri gibi pratik konuları da kapsar."
             ),
+            "outcomes": [
+                "Satış süreçlerinin mali sonuçlarını değerlendirebilme",
+                "Belge düzeni ve teslim ispatı konusunda hukuki farkındalık",
+                "Tahsilat ve ödeme risklerini doğru yönetme",
+            ],
             "modules": [
                 "Satış ve Finans Arasındaki İlişki (Ciro–Kâr–Nakit Farkı)",
                 "Temel Finansal Tablolar — Satış Perspektifiyle",
@@ -775,34 +888,48 @@ FLASH_SALE = {
             ],
             "format": "Sınıf İçi (Swissotel) / Canlı Sanal Sınıf",
             "duration": "1 Gün",
+            "authority": None,
+            "source_url": "https://www.ife.com.tr/tr/courses/satis-ve-pazarlama-yoneticileri-icin-finans",
+            "instructor": None,
             "level": "Başlangıç",
             "image": "https://amazing-prosperity-08faceb395.media.strapiapp.com/large_satis_icin_temel_finans_web_rsim_a63c771bf4.jpeg",
             "price_options": [
                 {"label": "Sınıf İçi (Swissotel)", "price": "₺23.800", "duration": "1 Gün"},
                 {"label": "Canlı Sanal Sınıf", "price": "₺18.900", "duration": "1 Gün"},
             ],
-            "instructor": {
-                "name": "İFE Kurumsal Eğitim Ekibi",
-                "title": "Eğitmen Ataması İFE ile Netleştirilecek",
-                "linkedin": None,
-                "bio": (
-                    "Bu program için eğitmen ataması, TBB'nin katılımcı profiline göre "
-                    "İFE tarafından yapılacaktır. Kurumsal grup eğitimlerinde İFE, en "
-                    "uygun eğitmeni ekiple birlikte belirler."
-                ),
-                "expertise": [],
-            },
         },
     ],
     "bespoke": {
+        "pillar_id": "musteri_guveni",
         "status_label": "PLANLANAN",
-        "title": "Satış Teknikleri",
+        "title": "Müşteri Güveni ve Etik Bankacılık İletişimi",
         "note": (
             "Bu program şu anda İFE kataloğunda yer almamaktadır. TBB'nin talebi "
             "doğrultusunda İFE tarafından özel (bespoke) olarak geliştirilebilir. "
-            "Satış psikolojisi, ikna teknikleri, itiraz yönetimi ve kapanış "
-            "stratejilerini içeren, bankacılık sektörüne özel bir müfredat "
-            "önerilir — mevcut bir kurs değil, teklife bağlı bir geliştirmedir."
+            "Müşteri ihtiyaç analizine dayalı danışmanlık yaklaşımı, şeffaf iletişim "
+            "ve uzun vadeli güven inşasını içeren, bankacılık sektörüne özel bir "
+            "müfredat önerilir — mevcut bir kurs değil, teklife bağlı bir "
+            "geliştirmedir."
+        ),
+    },
+    "closing": {
+        "title": "Önerilen Takvim ve Yer",
+        "text": (
+            "Ekim–Kasım 2026 dönemi ve Swissotel The Bosphorus, İFE'nin hâlihazırda "
+            "düzenli olarak organize ettiği ve yeterli katılımcı sayısının "
+            "sağlanması durumunda hızla devreye alabileceği bir takvim ve mekan "
+            "önerisidir. Bu dört program, TBB'nin mevcut eğitim takvimine entegre "
+            "edilebilecek modüler bir iş birliği çerçevesinde kısa sürede hayata "
+            "geçirilebilir; kesin tarih ve uygulama detayları TBB Eğitim Merkezi "
+            "ile birlikte planlanır."
         ),
     },
 }
+
+# ==============================================================================
+# LOGO (TBB Sunum/Broşür görünümünde kullanılır)
+# ==============================================================================
+IFE_LOGO_WHITE = "https://ife.com.tr/_next/image?url=%2Fife-logo-white.webp&w=384&q=75"
+IFE_LOGO_COLOR = "https://ife.com.tr/_next/image?url=%2Fife-full-logo.png&w=750&q=75"
+IFRS_LOGO = "https://ife.com.tr/_next/image?url=%2Fifrs.png&w=384&q=75"
+TBB_LOGO = "https://www.tbb.org.tr/themes/custom/tbb/logo.svg"

@@ -14,7 +14,7 @@ not/değerlendirme kalıcılığı feedback_store.py'de tutulur.
 
 import streamlit as st
 
-from data import SECTIONS, SECTION_ORDER, BROCHURE, FLASH_SALE, IFE_LOGO_WHITE
+from data import SECTIONS, SECTION_ORDER, BROCHURE, IFE_LOGO_WHITE, IFRS_LOGO, TBB_LOGO
 from feedback_store import load_feedback, add_feedback, clear_feedback
 
 # --------------------------------------------------------------------------
@@ -122,14 +122,6 @@ view_mode = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 
-if view_mode == "📄 TBB Sunum (Broşür)":
-    brochure_page = st.sidebar.radio(
-        "Program Seçin",
-        ["🎯 Ana Program (3 One-Shot Eğitim)", "⚡ Ek Fırsat (Satış & Pazarlama)"],
-        label_visibility="collapsed",
-    )
-    st.sidebar.markdown("---")
-
 if view_mode == "🏢 İç Ekip Görünümü":
     nav_labels = ["🏠 Ana Sayfa"] + [
         f"{SECTIONS[key]['icon']} {SECTIONS[key]['title']}" for key in SECTION_ORDER
@@ -201,6 +193,22 @@ def render_home():
 # --------------------------------------------------------------------------
 # TBB SUNUM (BROŞÜR) — Dış sunum görünümü
 # --------------------------------------------------------------------------
+def _html_block(text: str) -> str:
+    """Collapse a multi-line HTML f-string into one CommonMark-safe block.
+
+    st.markdown() already dedents/strips its input (see Streamlit's
+    string_util.clean_text), so indentation alone is not the issue. The real
+    problem is a blank line left in the middle of a <div> block — e.g. from
+    an optional field like an unset instructor or authority note rendering
+    as an empty string on its own template line — which still ends the
+    raw-HTML block early, so everything after it falls back to a literal
+    Markdown code block. Dropping blank lines (without touching indentation,
+    which Streamlit's own dedent will normalize on the final combined
+    string) keeps the whole card inside one continuous HTML block.
+    """
+    return "\n".join(line for line in text.splitlines() if line.strip())
+
+
 def render_brochure_styles():
     st.markdown(
         """
@@ -209,7 +217,7 @@ def render_brochure_styles():
                 background: linear-gradient(135deg, #0B1F3A 0%, #16305C 100%);
                 padding: 2.2rem 2.5rem;
                 border-radius: 14px;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 border-left: 8px solid #C8A24A;
             }
             .brochure-hero h1 {
@@ -221,6 +229,180 @@ def render_brochure_styles():
                 color: #C9D3E0;
                 margin: 0.2rem 0;
                 font-size: 1rem;
+            }
+            .hero-logos {
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                margin-bottom: 1rem;
+            }
+            .hero-logo-divider {
+                color: #C8A24A;
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+            .tbb-logo-chip {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: white;
+                border-radius: 8px;
+                padding: 0.3rem 0.6rem;
+                height: 40px;
+                box-sizing: border-box;
+            }
+            .tbb-logo-chip img {
+                height: 28px;
+            }
+            .section-intro {
+                background: #EEF3FA;
+                border-left: 5px solid #0B1F3A;
+                border-radius: 10px;
+                padding: 1.1rem 1.4rem;
+                margin-bottom: 2rem;
+            }
+            .section-intro p {
+                color: #1F2A3D;
+                font-size: 0.97rem;
+                font-weight: 500;
+                line-height: 1.65;
+                margin: 0;
+            }
+            .instructors-section {
+                margin-bottom: 1.8rem;
+            }
+            .instructors-title {
+                color: #0B1F3A;
+                font-size: 1.1rem;
+                margin: 0 0 0.8rem 0;
+            }
+            .instructor-grid {
+                display: flex;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+            .instructor-chip {
+                flex: 1;
+                min-width: 220px;
+                background: white;
+                border: 1px solid #E3E7EE;
+                border-radius: 10px;
+                padding: 0.8rem 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            .instructor-avatar {
+                flex-shrink: 0;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background: #0B1F3A;
+                color: #C8A24A;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 0.95rem;
+            }
+            .instructor-name {
+                color: #0B1F3A;
+                font-weight: 700;
+                font-size: 0.92rem;
+            }
+            .instructor-role {
+                color: #5A6472;
+                font-size: 0.78rem;
+                margin-top: 0.1rem;
+            }
+            .ifrs-banner {
+                background: #F8F6EF;
+                border-left: 6px solid #C8A24A;
+                border-radius: 10px;
+                padding: 1rem 1.4rem;
+                margin-bottom: 1.5rem;
+                color: #0B1F3A;
+                font-size: 0.95rem;
+                font-weight: 600;
+                line-height: 1.5;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .ifrs-banner-logo {
+                height: 32px;
+                flex-shrink: 0;
+            }
+            .accred-strip {
+                display: flex;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                margin-bottom: 1.8rem;
+            }
+            .accred-item {
+                flex: 1;
+                min-width: 170px;
+                background: white;
+                border: 1px solid #E3E7EE;
+                border-top: 3px solid #C8A24A;
+                border-radius: 8px;
+                padding: 0.7rem 0.9rem;
+            }
+            .accred-item .accred-name {
+                color: #0B1F3A;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+            .accred-item .accred-tag {
+                color: #5A6472;
+                font-size: 0.76rem;
+                margin-top: 0.15rem;
+            }
+            .course-link {
+                margin-top: 1.1rem;
+            }
+            .course-link a {
+                color: #0B1F3A;
+                font-weight: 600;
+                font-size: 0.85rem;
+                text-decoration: underline;
+            }
+            .pillar-strip {
+                display: flex;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                margin-bottom: 2.2rem;
+            }
+            .pillar-strip-item {
+                flex: 1;
+                min-width: 190px;
+                background: #0B1F3A;
+                color: #EDEFF3;
+                border-radius: 10px;
+                padding: 0.7rem 1rem;
+                font-size: 0.82rem;
+                font-weight: 600;
+            }
+            .pillar-strip-item .pillar-num {
+                color: #C8A24A;
+                font-weight: 700;
+                margin-right: 0.4rem;
+            }
+            .pillar-header {
+                border-left: 5px solid #C8A24A;
+                padding-left: 1rem;
+                margin: 2.4rem 0 1.2rem 0;
+            }
+            .pillar-header h2 {
+                color: #0B1F3A;
+                font-size: 1.3rem;
+                margin: 0 0 0.3rem 0;
+            }
+            .pillar-header p {
+                color: #5A6472;
+                font-size: 0.9rem;
+                margin: 0;
+                line-height: 1.5;
             }
             .program-card {
                 background: white;
@@ -276,6 +458,15 @@ def render_brochure_styles():
                 color: #C9D3E0;
                 margin-top: 0.2rem;
             }
+            .price-note-badge {
+                display: inline-block;
+                background: #EEF1F5;
+                color: #0B1F3A;
+                font-weight: 600;
+                padding: 0.6rem 1.1rem;
+                border-radius: 10px;
+                font-size: 0.9rem;
+            }
             .program-badge {
                 display: inline-block;
                 background: #C8A24A;
@@ -302,9 +493,14 @@ def render_brochure_styles():
                 line-height: 1.55;
                 margin-bottom: 1rem;
             }
-            .module-list, .audience-list {
+            .outcomes-list, .module-list, .audience-list {
                 margin: 0;
                 padding-left: 1.1rem;
+            }
+            .outcomes-list li {
+                margin-bottom: 0.35rem;
+                color: #0B1F3A;
+                font-weight: 600;
             }
             .module-list li, .audience-list li {
                 margin-bottom: 0.35rem;
@@ -321,6 +517,15 @@ def render_brochure_styles():
                 color: #5A6472;
             }
             .meta-row strong { color: #0B1F3A; }
+            .authority-badge {
+                background: #F8F6EF;
+                border-left: 4px solid #C8A24A;
+                border-radius: 8px;
+                padding: 0.7rem 1rem;
+                margin-top: 1rem;
+                font-size: 0.85rem;
+                color: #384357;
+            }
             .closing-box {
                 background: #F8F6EF;
                 border: 1px solid #E9DFC3;
@@ -329,12 +534,7 @@ def render_brochure_styles():
                 margin-top: 1rem;
             }
             .closing-box h3 { color: #0B1F3A; margin-top: 0; }
-            .cross-sell-header p {
-                color: #5A6472;
-                font-size: 0.92rem;
-                line-height: 1.55;
-                margin-bottom: 1.5rem;
-            }
+            .closing-box p { color: #384357; margin-bottom: 0; line-height: 1.6; }
             .bespoke-card {
                 background: #F5F5F5;
                 border: 1px dashed #9AA5B1;
@@ -364,217 +564,227 @@ def render_brochure():
 
     event = BROCHURE["event_info"]
     st.markdown(
-        f"""
-        <div class="brochure-hero">
-            <img src="{IFE_LOGO_WHITE}" alt="İFE Logo" style="height:40px; margin-bottom:1rem;">
-            <h1>{event['title']}</h1>
-            <p>{event['subtitle']}</p>
-            <p>{event['partner_line']}</p>
-        </div>
-        """,
+        _html_block(
+            f"""
+            <div class="brochure-hero">
+                <div class="hero-logos">
+                    <img src="{IFE_LOGO_WHITE}" alt="İFE Logo" style="height:40px;">
+                    <span class="hero-logo-divider">×</span>
+                    <span class="tbb-logo-chip"><img src="{TBB_LOGO}" alt="Türkiye Bankalar Birliği Logo"></span>
+                </div>
+                <h1>{event['title']}</h1>
+                <p>{event['opening_statement']}</p>
+                <p>{event['positioning']}</p>
+                <p style="font-size:0.82rem; opacity:0.85;">{event['credentials_line']}</p>
+            </div>
+            """
+        ),
         unsafe_allow_html=True,
     )
 
-    for program in BROCHURE["programs"]:
-        modules_html = "".join(f"<li>{m}</li>" for m in program["modules"])
-        audience_html = "".join(f"<li>{a}</li>" for a in program["audience"])
-
-        price_cards_html = "".join(
-            f"""<div class="price-card">
-                <div class="price-label">{p['label']}</div>
-                <div class="price-value">{p['price']}</div>
-                <div class="price-duration">{p['duration']}</div>
-            </div>"""
-            for p in program.get("price_options", [])
-        )
-        image_html = ""
-        if program.get("image"):
-            image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
-
-        instructor = program.get("instructor")
-        instructor_html = ""
-        if instructor:
-            linkedin_html = ""
-            if instructor.get("linkedin"):
-                link_text = "LinkedIn Profili →" if "linkedin.com" in instructor["linkedin"] else "Detaylı Özgeçmiş →"
-                linkedin_html = (
-                    f'<a href="{instructor["linkedin"]}" target="_blank" '
-                    f'style="color:#0B1F3A; text-decoration:underline; font-size:0.85rem;">'
-                    f'{link_text}</a>'
-                )
-            expertise_chips = "".join(
-                f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
-                f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
-                f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
-                for exp in instructor.get("expertise", [])
-            )
-            initials = "".join(part[0] for part in instructor["name"].split()[:2]).upper()
-            instructor_html = f"""
-            <div style="margin-top:1.2rem; padding-top:1.1rem; border-top:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
-                <div style="flex-shrink:0; width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem;">{initials}</div>
-                <div style="flex:1; min-width:200px;">
-                    <div style="font-weight:700; color:#0B1F3A; font-size:1rem;">{instructor['name']}
-                        <span style="font-weight:400; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span>
-                    </div>
-                    <p style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.35rem 0 0.5rem 0;">{instructor['bio']}</p>
-                    <div>{expertise_chips}</div>
-                    {f'<div style="margin-top:0.5rem;">{linkedin_html}</div>' if linkedin_html else ""}
-                </div>
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="ifrs-banner">
+                <img src="{IFRS_LOGO}" alt="IFRS Foundation" class="ifrs-banner-logo">
+                <span>{event['ifrs_partnership']}</span>
             </div>
             """
+        ),
+        unsafe_allow_html=True,
+    )
 
+    accred_html = "".join(
+        f"""<div class="accred-item">
+            <div class="accred-name">{a['name']}</div>
+            <div class="accred-tag">{a['tag']}</div>
+        </div>"""
+        for a in BROCHURE.get("accreditations", [])
+    )
+    st.markdown(f'<div class="accred-strip">{accred_html}</div>', unsafe_allow_html=True)
+
+    instructors = [p["instructor"] for p in BROCHURE["programs"] if p.get("instructor")]
+    if instructors:
+        instructor_cards_html = "".join(
+            f"""<div class="instructor-chip">
+                <div class="instructor-avatar">{"".join(part[0] for part in i["name"].split()[:2]).upper()}</div>
+                <div>
+                    <div class="instructor-name">{i['name']}</div>
+                    <div class="instructor-role">{i['title']}</div>
+                </div>
+            </div>"""
+            for i in instructors
+        )
         st.markdown(
-            f"""
-            <div class="program-card">
-                {image_html}
-                <span class="program-badge">{program['badge']}</span>
-                <span class="level-badge">{program.get('level', '')}</span>
-                <h2>{program['title']}</h2>
-                <div class="program-tagline">{program['tagline']}</div>
-                <div class="program-summary">{program['summary']}</div>
-                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Eğitim İçeriği</strong>
-                        <ul class="module-list">{modules_html}</ul>
-                    </div>
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Hedef Kitle</strong>
-                        <ul class="audience-list">{audience_html}</ul>
-                    </div>
+            _html_block(
+                f"""
+                <div class="instructors-section">
+                    <h2 class="instructors-title">Eğitmenlerimiz</h2>
+                    <div class="instructor-grid">{instructor_cards_html}</div>
                 </div>
-                <div class="meta-row">
-                    <span><strong>Format:</strong> {program['format']}</span>
-                    <span><strong>Süre:</strong> {program['duration']}</span>
-                </div>
-                <div class="meta-row">
-                    <span>{program['authority']}</span>
-                </div>
-                <div class="price-row">{price_cards_html}</div>
-                {instructor_html}
-            </div>
-            """,
+                """
+            ),
             unsafe_allow_html=True,
         )
+
+    st.markdown(
+        f"""<div class="section-intro"><p>{BROCHURE['bridge_intro']}</p></div>""",
+        unsafe_allow_html=True,
+    )
+
+    pillar_strip_html = "".join(
+        f'<div class="pillar-strip-item"><span class="pillar-num">{p["label"]}</span>{p["name"]}</div>'
+        for p in BROCHURE["pillars"]
+    )
+    st.markdown(f'<div class="pillar-strip">{pillar_strip_html}</div>', unsafe_allow_html=True)
+
+    for pillar in BROCHURE["pillars"]:
+        st.markdown(
+            _html_block(
+                f"""
+                <div class="pillar-header">
+                    <h2>{pillar['label']}. {pillar['name']}</h2>
+                    <p>{pillar['rationale']}</p>
+                </div>
+                """
+            ),
+            unsafe_allow_html=True,
+        )
+
+        for program in BROCHURE["programs"]:
+            if program["pillar_id"] != pillar["id"]:
+                continue
+
+            outcomes_html = "".join(f"<li>{o}</li>" for o in program.get("outcomes", []))
+            modules_html = "".join(f"<li>{m}</li>" for m in program["modules"])
+            audience_html = "".join(f"<li>{a}</li>" for a in program["audience"])
+
+            image_html = ""
+            if program.get("image"):
+                image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
+
+            instructor = program.get("instructor")
+            instructor_html = ""
+            if instructor:
+                linkedin_html = ""
+                if instructor.get("linkedin"):
+                    link_text = "LinkedIn Profili →" if "linkedin.com" in instructor["linkedin"] else "Detaylı Özgeçmiş →"
+                    linkedin_html = (
+                        f'<a href="{instructor["linkedin"]}" target="_blank" '
+                        f'style="color:#0B1F3A; text-decoration:underline; font-size:0.85rem;">'
+                        f'{link_text}</a>'
+                    )
+                expertise_chips = "".join(
+                    f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
+                    f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
+                    f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
+                    for exp in instructor.get("expertise", [])
+                )
+                initials = "".join(part[0] for part in instructor["name"].split()[:2]).upper()
+                instructor_html = _html_block(
+                    f"""
+                    <div style="margin-top:0.4rem; margin-bottom:1.2rem; padding-bottom:1.1rem; border-bottom:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
+                        <div style="flex-shrink:0; width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem;">{initials}</div>
+                        <div style="flex:1; min-width:200px;">
+                            <div style="font-weight:700; color:#0B1F3A; font-size:1rem;">{instructor['name']}
+                                <span style="font-weight:400; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span>
+                            </div>
+                            <p style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.35rem 0 0.5rem 0;">{instructor['bio']}</p>
+                            <div>{expertise_chips}</div>
+                            {f'<div style="margin-top:0.5rem;">{linkedin_html}</div>' if linkedin_html else ""}
+                        </div>
+                    </div>
+                    """
+                )
+
+            authority_html = ""
+            if program.get("authority"):
+                authority_html = f'<div class="authority-badge">{program["authority"]}</div>'
+
+            if program.get("price_note"):
+                price_html = f'<div class="price-note-badge">{program["price_note"]}</div>'
+            else:
+                price_html = "".join(
+                    f"""<div class="price-card">
+                        <div class="price-label">{p['label']}</div>
+                        <div class="price-value">{p['price']}</div>
+                        <div class="price-duration">{p['duration']}</div>
+                    </div>"""
+                    for p in program.get("price_options", [])
+                )
+
+            course_link_html = ""
+            if program.get("source_url"):
+                course_link_html = (
+                    f'<div class="course-link"><a href="{program["source_url"]}" '
+                    f'target="_blank">ife.com.tr\'de İçerik Sayfası →</a></div>'
+                )
+
+            st.markdown(
+                _html_block(
+                    f"""
+                    <div class="program-card">
+                        {image_html}
+                        <span class="program-badge">{pillar['name']}</span>
+                        <span class="level-badge">{program.get('level', '')}</span>
+                        <h2>{program['title']}</h2>
+                        <div class="program-tagline">{program['tagline']}</div>
+                        <div class="program-summary">{program['summary']}</div>
+                        {instructor_html}
+                        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+                            <div style="flex:1; min-width:200px;">
+                                <strong>Kazanımlar</strong>
+                                <ul class="outcomes-list">{outcomes_html}</ul>
+                            </div>
+                            <div style="flex:1; min-width:200px;">
+                                <strong>Eğitim İçeriği</strong>
+                                <ul class="module-list">{modules_html}</ul>
+                            </div>
+                            <div style="flex:1; min-width:200px;">
+                                <strong>Hedef Kitle</strong>
+                                <ul class="audience-list">{audience_html}</ul>
+                            </div>
+                        </div>
+                        <div class="meta-row">
+                            <span><strong>Format:</strong> {program['format']}</span>
+                            <span><strong>Süre:</strong> {program['duration']}</span>
+                        </div>
+                        {authority_html}
+                        <div class="price-row">{price_html}</div>
+                        {course_link_html}
+                    </div>
+                    """
+                ),
+                unsafe_allow_html=True,
+            )
+
+        if BROCHURE.get("bespoke") and BROCHURE["bespoke"].get("pillar_id") == pillar["id"]:
+            bespoke = BROCHURE["bespoke"]
+            st.markdown(
+                _html_block(
+                    f"""
+                    <div class="bespoke-card">
+                        <span class="bespoke-badge">{bespoke['status_label']}</span>
+                        <h3 style="color:#0B1F3A; margin:0.3rem 0;">{bespoke['title']}</h3>
+                        <p style="color:#5A6472; font-size:0.9rem; line-height:1.5; margin:0;">{bespoke['note']}</p>
+                    </div>
+                    """
+                ),
+                unsafe_allow_html=True,
+            )
 
     closing = BROCHURE["closing"]
     st.markdown(
-        f"""
-        <div class="closing-box">
-            <h3>{closing['title']}</h3>
-            <p>{closing['text']}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-# --------------------------------------------------------------------------
-# TBB SUNUM (BROŞÜR) — Ek Fırsat (Flash Sale) görünümü
-# --------------------------------------------------------------------------
-def render_flash_sale():
-    render_brochure_styles()
-
-    event = FLASH_SALE["event_info"]
-    st.markdown(
-        f"""
-        <div class="brochure-hero">
-            <img src="{IFE_LOGO_WHITE}" alt="İFE Logo" style="height:40px; margin-bottom:1rem;">
-            <h1>{event['title']}</h1>
-            <p>{event['subtitle']}</p>
-            <p>{event['partner_line']}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        f"""
-        <div class="cross-sell-header">
-            <p>{FLASH_SALE['section_intro']}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    for course in FLASH_SALE["courses"]:
-        modules_html = "".join(f"<li>{m}</li>" for m in course["modules"])
-        audience_html = "".join(f"<li>{a}</li>" for a in course["audience"])
-        price_html = "".join(
-            f"""<div class="price-card">
-                <div class="price-label">{p['label']}</div>
-                <div class="price-value">{p['price']}</div>
-                <div class="price-duration">{p['duration']}</div>
-            </div>"""
-            for p in course.get("price_options", [])
-        )
-        image_html = ""
-        if course.get("image"):
-            image_html = f'<img class="program-image" src="{course["image"]}" alt="{course["title"]}">'
-
-        instructor = course.get("instructor")
-        instructor_html = ""
-        if instructor:
-            expertise_chips = "".join(
-                f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
-                f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
-                f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
-                for exp in instructor.get("expertise", [])
-            )
-            instructor_html = f"""
-            <div style="margin-top:1.2rem; padding-top:1.1rem; border-top:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
-                <div style="width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.3rem; flex-shrink:0;">
-                    {instructor['name'][0]}
-                </div>
-                <div style="flex:1;">
-                    <div style="font-weight:700; color:#0B1F3A; font-size:1.02rem;">{instructor['name']} <span style="font-weight:500; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span></div>
-                    <div style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.4rem 0;">{instructor['bio']}</div>
-                    <div>{expertise_chips}</div>
-                </div>
+        _html_block(
+            f"""
+            <div class="closing-box">
+                <h3>{closing['title']}</h3>
+                <p>{closing['text']}</p>
             </div>
             """
-
-        st.markdown(
-            f"""
-            <div class="program-card">
-                {image_html}
-                <span class="program-badge">{course['badge']}</span>
-                <span class="level-badge">{course.get('level', '')}</span>
-                <h2>{course['title']}</h2>
-                <div class="program-tagline">{course['tagline']}</div>
-                <div class="program-summary">{course['summary']}</div>
-                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Eğitim İçeriği</strong>
-                        <ul class="module-list">{modules_html}</ul>
-                    </div>
-                    <div style="flex:1; min-width:220px;">
-                        <strong>Hedef Kitle</strong>
-                        <ul class="audience-list">{audience_html}</ul>
-                    </div>
-                </div>
-                <div class="meta-row">
-                    <span><strong>Format:</strong> {course['format']}</span>
-                    <span><strong>Süre:</strong> {course['duration']}</span>
-                </div>
-                <div class="price-row">{price_html}</div>
-                {instructor_html}
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    bespoke = FLASH_SALE.get("bespoke")
-    if bespoke:
-        st.markdown(
-            f"""
-            <div class="bespoke-card">
-                <span class="bespoke-badge">{bespoke['status_label']}</span>
-                <h3 style="color:#0B1F3A; margin:0.3rem 0;">{bespoke['title']}</h3>
-                <p style="color:#5A6472; font-size:0.9rem; line-height:1.5; margin:0;">{bespoke['note']}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        ),
+        unsafe_allow_html=True,
+    )
 
 
 # --------------------------------------------------------------------------
@@ -624,10 +834,7 @@ def render_feedback():
 # YÖNLENDİRME
 # --------------------------------------------------------------------------
 if view_mode == "📄 TBB Sunum (Broşür)":
-    if brochure_page == "🎯 Ana Program (3 One-Shot Eğitim)":
-        render_brochure()
-    else:
-        render_flash_sale()
+    render_brochure()
 else:
     if selected_key == "home":
         render_home()
