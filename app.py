@@ -230,6 +230,11 @@ def render_brochure_styles():
                 margin: 0.2rem 0;
                 font-size: 1rem;
             }
+            .event-tagline {
+                color: #C8A24A !important;
+                font-weight: 700;
+                font-size: 1.02rem !important;
+            }
             .hero-logos {
                 display: flex;
                 align-items: center;
@@ -254,19 +259,67 @@ def render_brochure_styles():
             .tbb-logo-chip img {
                 height: 28px;
             }
-            .section-intro {
+            .ifrs-banner {
+                background: #F8F6EF;
+                border-left: 6px solid #C8A24A;
+                border-radius: 10px;
+                padding: 1rem 1.4rem;
+                margin-bottom: 1.5rem;
+                color: #0B1F3A;
+                font-size: 0.95rem;
+                font-weight: 600;
+                line-height: 1.5;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .ifrs-banner-logo {
+                height: 32px;
+                flex-shrink: 0;
+            }
+            .section-block {
                 background: #EEF3FA;
                 border-left: 5px solid #0B1F3A;
                 border-radius: 10px;
                 padding: 1.1rem 1.4rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
             }
-            .section-intro p {
+            .section-block h2 {
+                color: #0B1F3A;
+                font-size: 1.15rem;
+                margin: 0 0 0.5rem 0;
+            }
+            .section-block p {
                 color: #1F2A3D;
-                font-size: 0.97rem;
+                font-size: 0.95rem;
                 font-weight: 500;
-                line-height: 1.65;
+                line-height: 1.6;
                 margin: 0;
+            }
+            .role-grid {
+                display: flex;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                margin-top: 0.6rem;
+            }
+            .role-chip {
+                flex: 1;
+                min-width: 200px;
+                background: white;
+                border: 1px solid #D7E1F0;
+                border-radius: 8px;
+                padding: 0.7rem 0.9rem;
+            }
+            .role-label {
+                color: #0B1F3A;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-bottom: 0.2rem;
+            }
+            .role-text {
+                color: #384357;
+                font-size: 0.82rem;
+                line-height: 1.4;
             }
             .instructors-section {
                 margin-bottom: 1.8rem;
@@ -315,102 +368,13 @@ def render_brochure_styles():
                 font-size: 0.78rem;
                 margin-top: 0.1rem;
             }
-            .ifrs-banner {
-                background: #F8F6EF;
-                border-left: 6px solid #C8A24A;
-                border-radius: 10px;
-                padding: 1rem 1.4rem;
-                margin-bottom: 1.5rem;
-                color: #0B1F3A;
-                font-size: 0.95rem;
-                font-weight: 600;
-                line-height: 1.5;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-            .ifrs-banner-logo {
-                height: 32px;
-                flex-shrink: 0;
-            }
-            .accred-strip {
-                display: flex;
-                gap: 0.8rem;
-                flex-wrap: wrap;
-                margin-bottom: 1.8rem;
-            }
-            .accred-item {
-                flex: 1;
-                min-width: 170px;
-                background: white;
-                border: 1px solid #E3E7EE;
-                border-top: 3px solid #C8A24A;
-                border-radius: 8px;
-                padding: 0.7rem 0.9rem;
-            }
-            .accred-item .accred-name {
-                color: #0B1F3A;
-                font-weight: 700;
-                font-size: 0.9rem;
-            }
-            .accred-item .accred-tag {
-                color: #5A6472;
-                font-size: 0.76rem;
-                margin-top: 0.15rem;
-            }
-            .course-link {
-                margin-top: 1.1rem;
-            }
-            .course-link a {
-                color: #0B1F3A;
-                font-weight: 600;
-                font-size: 0.85rem;
-                text-decoration: underline;
-            }
-            .pillar-strip {
-                display: flex;
-                gap: 0.8rem;
-                flex-wrap: wrap;
-                margin-bottom: 2.2rem;
-            }
-            .pillar-strip-item {
-                flex: 1;
-                min-width: 190px;
-                background: #0B1F3A;
-                color: #EDEFF3;
-                border-radius: 10px;
-                padding: 0.7rem 1rem;
-                font-size: 0.82rem;
-                font-weight: 600;
-            }
-            .pillar-strip-item .pillar-num {
-                color: #C8A24A;
-                font-weight: 700;
-                margin-right: 0.4rem;
-            }
-            .pillar-header {
-                border-left: 5px solid #C8A24A;
-                padding-left: 1rem;
-                margin: 2.4rem 0 1.2rem 0;
-            }
-            .pillar-header h2 {
-                color: #0B1F3A;
-                font-size: 1.3rem;
-                margin: 0 0 0.3rem 0;
-            }
-            .pillar-header p {
-                color: #5A6472;
-                font-size: 0.9rem;
-                margin: 0;
-                line-height: 1.5;
-            }
             .program-card {
                 background: white;
                 border: 1px solid #E3E7EE;
                 border-radius: 14px;
-                padding: 1.6rem 1.8rem;
-                margin-bottom: 1.6rem;
-                box-shadow: 0 2px 10px rgba(11,31,58,0.06);
+                padding: 1.8rem 2rem;
+                margin-bottom: 1.8rem;
+                box-shadow: 0 3px 14px rgba(11,31,58,0.08);
             }
             .program-image {
                 width: 100%;
@@ -466,6 +430,7 @@ def render_brochure_styles():
                 padding: 0.6rem 1.1rem;
                 border-radius: 10px;
                 font-size: 0.9rem;
+                margin-top: 1rem;
             }
             .program-badge {
                 display: inline-block;
@@ -480,31 +445,51 @@ def render_brochure_styles():
             .program-card h2 {
                 color: #0B1F3A;
                 margin: 0 0 0.2rem 0;
-                font-size: 1.4rem;
+                font-size: 1.45rem;
             }
             .program-tagline {
                 color: #C8A24A;
                 font-weight: 600;
-                font-size: 0.95rem;
-                margin-bottom: 0.8rem;
-            }
-            .program-summary {
-                color: #384357;
-                line-height: 1.55;
+                font-size: 0.98rem;
                 margin-bottom: 1rem;
+                line-height: 1.4;
             }
             .outcomes-list, .module-list, .audience-list {
                 margin: 0;
                 padding-left: 1.1rem;
             }
-            .outcomes-list li {
-                margin-bottom: 0.35rem;
-                color: #0B1F3A;
-                font-weight: 600;
-            }
             .module-list li, .audience-list li {
                 margin-bottom: 0.35rem;
                 color: #1F2A3D;
+            }
+            .method-box {
+                background: #F8F6EF;
+                border-radius: 8px;
+                padding: 0.8rem 1rem;
+                margin-top: 1rem;
+                font-size: 0.88rem;
+                color: #384357;
+                line-height: 1.5;
+            }
+            .method-box strong { color: #0B1F3A; }
+            .levels-strip {
+                display: flex;
+                gap: 0.6rem;
+                flex-wrap: wrap;
+                margin-top: 1.1rem;
+            }
+            .level-pill {
+                background: #0B1F3A;
+                color: #EDEFF3;
+                border-radius: 999px;
+                padding: 0.35rem 0.9rem;
+                font-size: 0.78rem;
+                font-weight: 600;
+            }
+            .level-pill .level-num {
+                color: #C8A24A;
+                font-weight: 700;
+                margin-right: 0.3rem;
             }
             .meta-row {
                 display: flex;
@@ -526,12 +511,142 @@ def render_brochure_styles():
                 font-size: 0.85rem;
                 color: #384357;
             }
+            .authority-badge strong { color: #0B1F3A; }
+            .course-link {
+                margin-top: 1.1rem;
+            }
+            .course-link a {
+                color: #0B1F3A;
+                font-weight: 600;
+                font-size: 0.85rem;
+                text-decoration: underline;
+            }
+            .component-card {
+                background: #FAFBFD;
+                border: 1px solid #E3E7EE;
+                border-radius: 12px;
+                padding: 1.2rem 1.4rem;
+                margin-top: 1.4rem;
+            }
+            .component-name {
+                color: #0B1F3A;
+                font-weight: 700;
+                font-size: 1.02rem;
+            }
+            .component-note {
+                color: #5A6472;
+                font-size: 0.85rem;
+                font-style: italic;
+                margin-top: 0.3rem;
+            }
+            .second-phase-heading {
+                color: #0B1F3A;
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin: 2.6rem 0 0.4rem 0;
+                border-top: 2px solid #E3E7EE;
+                padding-top: 1.6rem;
+            }
+            .secondary-card {
+                background: #FAFAFA;
+                border: 1px solid #E7E7E7;
+                border-radius: 10px;
+                padding: 1.2rem 1.4rem;
+                margin-bottom: 1.2rem;
+            }
+            .secondary-card h3 {
+                color: #384357;
+                font-size: 1.05rem;
+                margin: 0.4rem 0 0.3rem 0;
+            }
+            .secondary-badge {
+                display: inline-block;
+                background: #D9DEE5;
+                color: #384357;
+                font-weight: 700;
+                padding: 0.2rem 0.8rem;
+                border-radius: 999px;
+                font-size: 0.72rem;
+            }
+            .secondary-intro {
+                color: #5A6472;
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 0.9rem;
+            }
+            .cert-grid {
+                display: flex;
+                gap: 0.7rem;
+                flex-wrap: wrap;
+            }
+            .cert-item {
+                flex: 1;
+                min-width: 220px;
+                background: white;
+                border: 1px solid #E7E7E7;
+                border-radius: 8px;
+                padding: 0.7rem 0.9rem;
+            }
+            .cert-name {
+                color: #384357;
+                font-weight: 700;
+                font-size: 0.85rem;
+            }
+            .cert-use-case {
+                color: #5A6472;
+                font-size: 0.78rem;
+                margin-top: 0.2rem;
+                line-height: 1.4;
+            }
+            .cert-career {
+                color: #8A93A0;
+                font-size: 0.72rem;
+                margin-top: 0.3rem;
+                font-style: italic;
+            }
+            .theme-strip {
+                display: flex;
+                gap: 0.4rem;
+                flex-wrap: wrap;
+                margin-bottom: 1rem;
+            }
+            .theme-chip {
+                display: inline-block;
+                background: #EFEFEF;
+                color: #384357;
+                font-size: 0.74rem;
+                padding: 0.25rem 0.7rem;
+                border-radius: 999px;
+            }
+            .mini-program-card {
+                background: white;
+                border: 1px solid #E7E7E7;
+                border-radius: 8px;
+                padding: 0.9rem 1.1rem;
+                margin-top: 0.8rem;
+            }
+            .mini-program-title {
+                color: #384357;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+            .mini-program-tagline {
+                color: #8A93A0;
+                font-size: 0.78rem;
+                margin: 0.2rem 0 0.5rem 0;
+            }
+            .instructor-note {
+                color: #8A93A0;
+                font-size: 0.78rem;
+                font-style: italic;
+                margin-top: 0.5rem;
+            }
             .closing-box {
                 background: #F8F6EF;
                 border: 1px solid #E9DFC3;
                 border-radius: 14px;
                 padding: 1.6rem 1.8rem;
-                margin-top: 1rem;
+                margin-top: 1.6rem;
             }
             .closing-box h3 { color: #0B1F3A; margin-top: 0; }
             .closing-box p { color: #384357; margin-bottom: 0; line-height: 1.6; }
@@ -559,6 +674,237 @@ def render_brochure_styles():
     )
 
 
+def _render_instructor_html(instructor):
+    if not instructor:
+        return ""
+    linkedin_html = ""
+    if instructor.get("linkedin"):
+        link_text = "LinkedIn Profili →" if "linkedin.com" in instructor["linkedin"] else "Detaylı Özgeçmiş →"
+        linkedin_html = (
+            f'<a href="{instructor["linkedin"]}" target="_blank" '
+            f'style="color:#0B1F3A; text-decoration:underline; font-size:0.85rem;">'
+            f'{link_text}</a>'
+        )
+    expertise_chips = "".join(
+        f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
+        f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
+        f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
+        for exp in instructor.get("expertise", [])
+    )
+    initials = "".join(part[0] for part in instructor["name"].split()[:2]).upper()
+    return _html_block(
+        f"""
+        <div style="margin-top:0.4rem; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
+            <div style="flex-shrink:0; width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem;">{initials}</div>
+            <div style="flex:1; min-width:200px;">
+                <div style="font-weight:700; color:#0B1F3A; font-size:1rem;">{instructor['name']}
+                    <span style="font-weight:400; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span>
+                </div>
+                <p style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.35rem 0 0.5rem 0;">{instructor['bio']}</p>
+                <div>{expertise_chips}</div>
+                {f'<div style="margin-top:0.5rem;">{linkedin_html}</div>' if linkedin_html else ""}
+            </div>
+        </div>
+        """
+    )
+
+
+def _render_price_html(price_options):
+    return "".join(
+        f"""<div class="price-card">
+            <div class="price-label">{p['label']}</div>
+            <div class="price-value">{p['price']}</div>
+            <div class="price-duration">{p['duration']}</div>
+        </div>"""
+        for p in price_options
+    )
+
+
+def _render_course_link_html(source_url):
+    if not source_url:
+        return ""
+    return (
+        f'<div class="course-link"><a href="{source_url}" '
+        f'target="_blank">ife.com.tr\'de İçerik Sayfası →</a></div>'
+    )
+
+
+def _component_card_html(component):
+    instructor_html = _render_instructor_html(component.get("instructor"))
+    price_html = _render_price_html(component.get("price_options", []))
+    note_html = f'<div class="component-note">{component["note"]}</div>' if component.get("note") else ""
+    authority_html = (
+        f'<div class="authority-badge">{component["authority"]}</div>'
+        if component.get("authority") else ""
+    )
+    link_html = _render_course_link_html(component.get("source_url"))
+
+    return _html_block(
+        f"""
+        <div class="component-card">
+            <div class="component-name">{component['name']} <span class="level-badge">{component.get('level', '')}</span></div>
+            {note_html}
+            {instructor_html}
+            <div class="meta-row">
+                <span><strong>Format:</strong> {component.get('format', '')}</span>
+                <span><strong>Süre:</strong> {component.get('duration', '')}</span>
+            </div>
+            {authority_html}
+            <div class="price-row">{price_html}</div>
+            {link_html}
+        </div>
+        """
+    )
+
+
+def _render_main_program(program):
+    audience_html = "".join(f"<li>{a}</li>" for a in program.get("audience", []))
+    scope_html = "".join(f"<li>{s}</li>" for s in program.get("scope", []))
+    levels_html = "".join(
+        f'<div class="level-pill"><span class="level-num">{i + 1}</span>{lvl}</div>'
+        for i, lvl in enumerate(program.get("levels", []))
+    )
+
+    image_html = ""
+    if program.get("image"):
+        image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
+
+    instructor_html = _render_instructor_html(program.get("instructor"))
+
+    meta_html = ""
+    if program.get("format") or program.get("duration"):
+        meta_html = (
+            f'<div class="meta-row">'
+            f'<span><strong>Format:</strong> {program.get("format", "")}</span>'
+            f'<span><strong>Süre:</strong> {program.get("duration", "")}</span>'
+            f'</div>'
+        )
+
+    pricing_html = ""
+    if program.get("pricing_note"):
+        pricing_html = f'<div class="price-note-badge">{program["pricing_note"]}</div>'
+
+    link_html = _render_course_link_html(program.get("source_url"))
+
+    components_html = "".join(_component_card_html(c) for c in program.get("components", []))
+
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="program-card">
+                {image_html}
+                <span class="program-badge">{program['badge']}</span>
+                <span class="level-badge">{program.get('level', '')}</span>
+                <h2>{program['title']}</h2>
+                <div class="program-tagline">{program['benefit']}</div>
+                <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Hedef Katılımcılar</strong>
+                        <ul class="audience-list">{audience_html}</ul>
+                    </div>
+                    <div style="flex:1; min-width:220px;">
+                        <strong>Program Kapsamı</strong>
+                        <ul class="module-list">{scope_html}</ul>
+                    </div>
+                </div>
+                <div class="method-box"><strong>Uygulama Yöntemi:</strong> {program.get('method', '')}</div>
+                <div class="authority-badge"><strong>Beklenen Kurumsal Çıktı:</strong> {program.get('outcome', '')}</div>
+                <div class="levels-strip">{levels_html}</div>
+                {instructor_html}
+                {meta_html}
+                {pricing_html}
+                {link_html}
+                {components_html}
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+
+def _render_cert_group(group):
+    cert_items_html = "".join(
+        f"""<div class="cert-item">
+            <div class="cert-name">{c['name']}</div>
+            <div class="cert-use-case">{c['use_case']}</div>
+            <div class="cert-career">{c['career']}</div>
+        </div>"""
+        for c in group["certifications"]
+    )
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="secondary-card">
+                <span class="secondary-badge">{group['badge']}</span>
+                <h3>{group['title']}</h3>
+                <p class="secondary-intro">{group['intro']}</p>
+                <div class="cert-grid">{cert_items_html}</div>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+
+def _render_theme_group(group):
+    themes_html = "".join(f'<span class="theme-chip">{t}</span>' for t in group.get("themes", []))
+
+    programs_html = ""
+    for prog in group.get("programs", []):
+        audience_html = "".join(f"<li>{a}</li>" for a in prog.get("audience", []))
+        price_html = _render_price_html(prog.get("price_options", []))
+        link_html = _render_course_link_html(prog.get("source_url"))
+        instructor_note_html = (
+            f'<div class="instructor-note">{prog["instructor_note"]}</div>'
+            if prog.get("instructor_note") else ""
+        )
+        programs_html += _html_block(
+            f"""
+            <div class="mini-program-card">
+                <div class="mini-program-title">{prog['title']}</div>
+                <div class="mini-program-tagline">{prog['tagline']}</div>
+                <ul class="audience-list">{audience_html}</ul>
+                <div class="meta-row">
+                    <span><strong>Format:</strong> {prog.get('format', '')}</span>
+                    <span><strong>Süre:</strong> {prog.get('duration', '')}</span>
+                </div>
+                {instructor_note_html}
+                <div class="price-row">{price_html}</div>
+                {link_html}
+            </div>
+            """
+        )
+
+    bespoke_html = ""
+    bespoke = group.get("bespoke")
+    if bespoke:
+        bespoke_html = _html_block(
+            f"""
+            <div class="bespoke-card">
+                <span class="bespoke-badge">{bespoke['status_label']}</span>
+                <h4 style="color:#0B1F3A; margin:0.3rem 0;">{bespoke['title']}</h4>
+                <p style="color:#5A6472; font-size:0.9rem; line-height:1.5; margin:0;">{bespoke['note']}</p>
+            </div>
+            """
+        )
+
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="secondary-card">
+                <span class="secondary-badge">{group['badge']}</span>
+                <h3>{group['title']}</h3>
+                <p class="secondary-intro">{group['intro']}</p>
+                <div class="theme-strip">{themes_html}</div>
+                {programs_html}
+                {bespoke_html}
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+
 def render_brochure():
     render_brochure_styles()
 
@@ -573,6 +919,7 @@ def render_brochure():
                     <span class="tbb-logo-chip"><img src="{TBB_LOGO}" alt="Türkiye Bankalar Birliği Logo"></span>
                 </div>
                 <h1>{event['title']}</h1>
+                <p class="event-tagline">{event['tagline']}</p>
                 <p>{event['opening_statement']}</p>
                 <p>{event['positioning']}</p>
                 <p style="font-size:0.82rem; opacity:0.85;">{event['credentials_line']}</p>
@@ -594,16 +941,76 @@ def render_brochure():
         unsafe_allow_html=True,
     )
 
-    accred_html = "".join(
-        f"""<div class="accred-item">
-            <div class="accred-name">{a['name']}</div>
-            <div class="accred-tag">{a['tag']}</div>
-        </div>"""
-        for a in BROCHURE.get("accreditations", [])
+    tbb_strength = BROCHURE["tbb_strength"]
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="section-block">
+                <h2>{tbb_strength['title']}</h2>
+                <p>{tbb_strength['text']}</p>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
     )
-    st.markdown(f'<div class="accred-strip">{accred_html}</div>', unsafe_allow_html=True)
 
-    instructors = [p["instructor"] for p in BROCHURE["programs"] if p.get("instructor")]
+    why_partnership = BROCHURE["why_partnership"]
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="section-block">
+                <h2>{why_partnership['title']}</h2>
+                <p>{why_partnership['text']}</p>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+    model = BROCHURE["partnership_model"]
+    roles_html = "".join(
+        f"""<div class="role-chip">
+            <div class="role-label">{r['label']}</div>
+            <div class="role-text">{r['text']}</div>
+        </div>"""
+        for r in model["roles"]
+    )
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="section-block">
+                <h2>{model['title']}</h2>
+                <div class="role-grid">{roles_html}</div>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+    for program in BROCHURE["main_programs"]:
+        _render_main_program(program)
+
+    delivery_model = BROCHURE["delivery_model"]
+    st.markdown(
+        _html_block(
+            f"""
+            <div class="section-block">
+                <h2>{delivery_model['title']}</h2>
+                <p>{delivery_model['text']}</p>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
+
+    instructors = []
+    for p in BROCHURE["main_programs"]:
+        if p.get("instructor"):
+            instructors.append(p["instructor"])
+        for c in p.get("components", []):
+            if c.get("instructor"):
+                instructors.append(c["instructor"])
+
     if instructors:
         instructor_cards_html = "".join(
             f"""<div class="instructor-chip">
@@ -627,153 +1034,14 @@ def render_brochure():
             unsafe_allow_html=True,
         )
 
-    st.markdown(
-        f"""<div class="section-intro"><p>{BROCHURE['bridge_intro']}</p></div>""",
-        unsafe_allow_html=True,
-    )
+    st.markdown('<div class="second-phase-heading">İkinci Faz Programları</div>', unsafe_allow_html=True)
+    for group in BROCHURE["second_phase"]:
+        if "certifications" in group:
+            _render_cert_group(group)
+        else:
+            _render_theme_group(group)
 
-    pillar_strip_html = "".join(
-        f'<div class="pillar-strip-item"><span class="pillar-num">{p["label"]}</span>{p["name"]}</div>'
-        for p in BROCHURE["pillars"]
-    )
-    st.markdown(f'<div class="pillar-strip">{pillar_strip_html}</div>', unsafe_allow_html=True)
-
-    for pillar in BROCHURE["pillars"]:
-        st.markdown(
-            _html_block(
-                f"""
-                <div class="pillar-header">
-                    <h2>{pillar['label']}. {pillar['name']}</h2>
-                    <p>{pillar['rationale']}</p>
-                </div>
-                """
-            ),
-            unsafe_allow_html=True,
-        )
-
-        for program in BROCHURE["programs"]:
-            if program["pillar_id"] != pillar["id"]:
-                continue
-
-            outcomes_html = "".join(f"<li>{o}</li>" for o in program.get("outcomes", []))
-            modules_html = "".join(f"<li>{m}</li>" for m in program["modules"])
-            audience_html = "".join(f"<li>{a}</li>" for a in program["audience"])
-
-            image_html = ""
-            if program.get("image"):
-                image_html = f'<img class="program-image" src="{program["image"]}" alt="{program["title"]}">'
-
-            instructor = program.get("instructor")
-            instructor_html = ""
-            if instructor:
-                linkedin_html = ""
-                if instructor.get("linkedin"):
-                    link_text = "LinkedIn Profili →" if "linkedin.com" in instructor["linkedin"] else "Detaylı Özgeçmiş →"
-                    linkedin_html = (
-                        f'<a href="{instructor["linkedin"]}" target="_blank" '
-                        f'style="color:#0B1F3A; text-decoration:underline; font-size:0.85rem;">'
-                        f'{link_text}</a>'
-                    )
-                expertise_chips = "".join(
-                    f'<span style="display:inline-block; background:#EEF1F5; color:#0B1F3A; '
-                    f'padding:0.2rem 0.7rem; border-radius:999px; font-size:0.78rem; '
-                    f'margin:0.2rem 0.3rem 0.2rem 0;">{exp}</span>'
-                    for exp in instructor.get("expertise", [])
-                )
-                initials = "".join(part[0] for part in instructor["name"].split()[:2]).upper()
-                instructor_html = _html_block(
-                    f"""
-                    <div style="margin-top:0.4rem; margin-bottom:1.2rem; padding-bottom:1.1rem; border-bottom:1px solid #EEF1F5; display:flex; gap:1rem; align-items:flex-start;">
-                        <div style="flex-shrink:0; width:52px; height:52px; border-radius:50%; background:#0B1F3A; color:#C8A24A; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem;">{initials}</div>
-                        <div style="flex:1; min-width:200px;">
-                            <div style="font-weight:700; color:#0B1F3A; font-size:1rem;">{instructor['name']}
-                                <span style="font-weight:400; color:#5A6472; font-size:0.85rem;">— {instructor['title']}</span>
-                            </div>
-                            <p style="color:#384357; font-size:0.88rem; line-height:1.5; margin:0.35rem 0 0.5rem 0;">{instructor['bio']}</p>
-                            <div>{expertise_chips}</div>
-                            {f'<div style="margin-top:0.5rem;">{linkedin_html}</div>' if linkedin_html else ""}
-                        </div>
-                    </div>
-                    """
-                )
-
-            authority_html = ""
-            if program.get("authority"):
-                authority_html = f'<div class="authority-badge">{program["authority"]}</div>'
-
-            if program.get("price_note"):
-                price_html = f'<div class="price-note-badge">{program["price_note"]}</div>'
-            else:
-                price_html = "".join(
-                    f"""<div class="price-card">
-                        <div class="price-label">{p['label']}</div>
-                        <div class="price-value">{p['price']}</div>
-                        <div class="price-duration">{p['duration']}</div>
-                    </div>"""
-                    for p in program.get("price_options", [])
-                )
-
-            course_link_html = ""
-            if program.get("source_url"):
-                course_link_html = (
-                    f'<div class="course-link"><a href="{program["source_url"]}" '
-                    f'target="_blank">ife.com.tr\'de İçerik Sayfası →</a></div>'
-                )
-
-            st.markdown(
-                _html_block(
-                    f"""
-                    <div class="program-card">
-                        {image_html}
-                        <span class="program-badge">{pillar['name']}</span>
-                        <span class="level-badge">{program.get('level', '')}</span>
-                        <h2>{program['title']}</h2>
-                        <div class="program-tagline">{program['tagline']}</div>
-                        <div class="program-summary">{program['summary']}</div>
-                        {instructor_html}
-                        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-                            <div style="flex:1; min-width:200px;">
-                                <strong>Kazanımlar</strong>
-                                <ul class="outcomes-list">{outcomes_html}</ul>
-                            </div>
-                            <div style="flex:1; min-width:200px;">
-                                <strong>Eğitim İçeriği</strong>
-                                <ul class="module-list">{modules_html}</ul>
-                            </div>
-                            <div style="flex:1; min-width:200px;">
-                                <strong>Hedef Kitle</strong>
-                                <ul class="audience-list">{audience_html}</ul>
-                            </div>
-                        </div>
-                        <div class="meta-row">
-                            <span><strong>Format:</strong> {program['format']}</span>
-                            <span><strong>Süre:</strong> {program['duration']}</span>
-                        </div>
-                        {authority_html}
-                        <div class="price-row">{price_html}</div>
-                        {course_link_html}
-                    </div>
-                    """
-                ),
-                unsafe_allow_html=True,
-            )
-
-        if BROCHURE.get("bespoke") and BROCHURE["bespoke"].get("pillar_id") == pillar["id"]:
-            bespoke = BROCHURE["bespoke"]
-            st.markdown(
-                _html_block(
-                    f"""
-                    <div class="bespoke-card">
-                        <span class="bespoke-badge">{bespoke['status_label']}</span>
-                        <h3 style="color:#0B1F3A; margin:0.3rem 0;">{bespoke['title']}</h3>
-                        <p style="color:#5A6472; font-size:0.9rem; line-height:1.5; margin:0;">{bespoke['note']}</p>
-                    </div>
-                    """
-                ),
-                unsafe_allow_html=True,
-            )
-
-    closing = BROCHURE["closing"]
+    closing = BROCHURE["pilot_next_steps"]
     st.markdown(
         _html_block(
             f"""
