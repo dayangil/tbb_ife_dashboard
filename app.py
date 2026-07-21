@@ -114,6 +114,19 @@ st.sidebar.markdown("## 🤝 TBB - İFE")
 st.sidebar.caption("Stratejik Ortaklık Sunumu")
 st.sidebar.markdown("---")
 
+st.sidebar.markdown(
+    """
+    <a href="https://fintem:Fintem2026!@fintem.net/" target="_blank" rel="noopener"
+       style="display:block; background:#C8A24A; color:#0B1F3A !important; font-weight:700;
+              text-align:center; padding:0.55rem 0.8rem; border-radius:8px;
+              text-decoration:none; margin-bottom:0.6rem;">
+        🔐 FİNTEM - Kapalı Eğitim Platformu
+    </a>
+    """,
+    unsafe_allow_html=True,
+)
+st.sidebar.markdown("---")
+
 view_mode = st.sidebar.radio(
     "Görünüm Modu",
     ["📄 TBB Sunum (Broşür)", "🏢 İç Ekip Görünümü"],
